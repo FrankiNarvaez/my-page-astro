@@ -1,4 +1,9 @@
-<nav class='h-20 bg-main-color/70 flex items-center justify-center'>
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<nav class='h-20 bg-main-color/70 flex items-center justify-between px-[5%] lg:px-[20%]'>
+  <h2 class='text-white-color text-3xl hover:scale-110 font-bold'>JC</h2>
   <ul class='list-none flex flex-row gap-5 md:gap-14 text-white-color text-lg md:text-2xl'>
     <a href="#Home">
       <li class='hover:underline'>Home</li>  
@@ -12,4 +17,12 @@
       <li class='hover:underline'>Contact</li>
     </a>
   </ul>
+  <div class='flex gap-5'>
+    <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
+      <Icon name='linkedin' size={30} class='text-white-color hover:scale-110' />
+    </a>
+    <a href="https://github.com/FrankiNarvaez" target="_blank">
+      <Icon name='github' size={30} class='text-white-color hover:scale-110' />
+    </a>
+  </div>
 </nav>
