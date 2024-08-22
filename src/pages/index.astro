@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Burble from '../components/Burble.astro'
 import Navbar from '../components/Navbar.astro'
 import Home from '../components/Home.astro'
+import About from '../components/About.astro'
 ---
 
 <Layout title="Jhan Carlos">
@@ -10,6 +11,10 @@ import Home from '../components/Home.astro'
 	<Navbar />
 	<main>
 		<Home />
+		<About />
+		<div class='px-[5%] lg:px-[20%] my-10'>
+			<img src='../../public/assets/bv.gif' alt='gif' class='rounded-2xl' />
+		</div>
 	</main>
 </Layout>
 
