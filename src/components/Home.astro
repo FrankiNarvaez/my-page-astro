@@ -1,10 +1,16 @@
+---
+import { Image } from 'astro:assets'
+
+import computer from '../assets/pc.png'
+---
+
 <section id='Home' class='mt-5 flex px-[5%] lg:px-[20%] justify-around md:justify-between items-center flex-col md:flex-row  h-[85vh]'>
   <section class='flex flex-col justify-center font-black'>
     <p class='text-main-color text-xl '>HI! MY NAME IS</p>
     <h1 class='name text-black-color text-[4rem] md:text-[6rem]'></h1>
     <h2 class='text-grey-color text-4xl'>A FULL-STACK DEVELOPER</h2>
   </section>
-  <img src='../../public/assets/pc.png' alt='computer' class='w-50 h-56 md:w-90 md:h-96'/>
+  <Image src={computer} alt='computer' class='w-50 h-56 md:w-90 md:h-96'/>
 </section>
 
 <style>

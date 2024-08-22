@@ -1,10 +1,15 @@
 ---
 import Project from "./Project.astro";
+
+import memoryGame from '../assets/preview/memory-game.png'
+import imdbPage from '../assets/preview/page-imdb.png'
+import apiTMDB from '../assets/preview/api-tmdb.png'
+import weatherApp from '../assets/preview/wather-location.png'
 ---
 
-<section class='px-[5%] lg:px-[20%] grid grid-cols-1 md:grid-cols-2 gap-5'>
+<section id='Projects' class='px-[5%] lg:px-[20%] grid grid-cols-1 md:grid-cols-2 gap-5'>
   <Project 
-    image="../../public/preview/memory-game.png" 
+    image={memoryGame}
     title="Memory" 
     about="Memory game without using JavaScript"
     tecnologies={['HTML5', 'CSS3']}
@@ -12,7 +17,7 @@ import Project from "./Project.astro";
     view="https://memory-project-2024.netlify.app/"
   />
   <Project 
-    image="../../public/preview/page-imdb.png" 
+    image={imdbPage}
     title="Movies page" 
     about="Page to search for movies and celebrities using the IMDB API and display the information"
     tecnologies={['JavaScript', 'React']}
@@ -20,7 +25,7 @@ import Project from "./Project.astro";
     view="https://cute-medovik-bab83a.netlify.app/"
   />
   <Project 
-    image="../../public/preview/api-tmdb.png" 
+    image={apiTMDB}
     title="Api TMDB" 
     about="This API consumes the TMDB API and returns the information in a more organized way"
     tecnologies={['Nodejs', 'Express']}
@@ -28,7 +33,7 @@ import Project from "./Project.astro";
     view="https://api-tmdb.herokuapp.com/"
   />
   <Project 
-    image="../../public/preview/wather-location.png" 
+    image={weatherApp}
     title="Weather App" 
     about="Memory game without using JavaScript"
     tecnologies={['HTML5', 'CSS3', 'JavaScript']}
