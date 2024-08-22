@@ -13,8 +13,6 @@ interface Props {
 }
 
 const { title, image, tecnologies, github, view, about } = Astro.props;
-console.log(title)
-console.log(tecnologies)
 ---
 
 
@@ -34,12 +32,12 @@ console.log(tecnologies)
     ))}
   </section>
   <section class='flex'>
-    <a class='flex gap-1 md:gap-3 mr-3 bg-main-color/10 p-2 rounded-xl'>
+    <a href={github} target="_blank" class='flex gap-1 md:gap-3 mr-3 bg-main-color/10 p-2 rounded-xl'>
       <Icon name="GitHub" size={25}/>
       <p>GitHub</p>
     </a>
     {view !== '' && (
-      <a class='flex gap-1 md:gap-3 bg-main-color/10 p-2 rounded-xl'>
+      <a href={view} target="_blank" class='flex gap-1 md:gap-3 bg-main-color/10 p-2 rounded-xl'>
         <Icon name="code" size={25}/>
         <p>View</p>
       </a>
