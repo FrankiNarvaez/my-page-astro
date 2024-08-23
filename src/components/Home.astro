@@ -2,18 +2,20 @@
 import { Image } from 'astro:assets'
 
 import computer from '../assets/pc.png'
+import { Icon } from 'astro-icon/components'
 ---
 
 <section id='Home' class='mt-5 flex mx-[5%] lg:mx-[12%] 2xl:mx-[20%] justify-around md:justify-between items-center flex-col md:flex-row  h-[85vh]'>
-  <div class='flex flex-col justify-center font-black'>
+  <div class='flex flex-col justify-center font-black '>
     <div>
       <p class='text-main-color text-xl '>HI! MY NAME IS</p>
       <h1 class='name text-black-color text-[3rem] md:text-[4.6rem] xl:text-[6rem]'></h1>
       <h2 class='text-gray-color text-2xl lg:text-3xl xl:text-4xl'>A FULL-STACK DEVELOPER</h2>
     </div>
-    <dir>
-
-    </dir>
+    <a href='#Contact' class='flex mt-7 gap-4 justify-center items-center bg-main-color hover:bg-main-color/80 transition-colors p-2 rounded-2xl'>
+      <h4 class='text-2xl text-white-color'>Contact me</h4>
+      <Icon name='send' size={30} class='text-white-color' />
+    </a>
   </div>
   <Image src={computer} alt='computer' class='h-auto w-72 sm:w-96'/>
 </section>
