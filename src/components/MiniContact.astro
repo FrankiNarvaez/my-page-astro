@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  iconName: string;
+  text: string;
+  href: string;
+  id: string;
+}
+
+const { iconName, text, href, id } = Astro.props; 
+---
+
+<div class='flex items-center justify-between gap-3 sm:gap-5 py-2'>
+  <section class='flex gap-3 sm:gap-5 items-center'>
+    <Icon name={iconName} size={25} />
+    <p class='text-base sm:text-lg xl:text-2xl'>{text}</p>
+  </section>
+  <section class='flex gap-3 sm:gap-5'>
+    <a href={href} class='bg-main-color p-1 sm:p-2 rounded-xl hover:bg-main-color/80'>
+      <Icon name='send' size={20} />
+    </a>
+    <button id={id} class='bg-main-color p-1 sm:p-2 rounded-xl hover:bg-main-color/80'>
+      <Icon name='copy' size={20} />
+    </button>
+  </section>
+</div>
