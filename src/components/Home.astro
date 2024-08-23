@@ -9,7 +9,7 @@ import { Icon } from 'astro-icon/components'
   <div class='flex flex-col justify-center font-black '>
     <div>
       <p class='text-main-color text-xl '>HI! MY NAME IS</p>
-      <h1 class='name text-black-color text-[3rem] md:text-[4.6rem] xl:text-[6rem]'></h1>
+      <h1 class='name text-black-color text-[3rem] md:text-[4.6rem] xl:text-[6rem] after:animate-[typingname_2s_linear_forwards] after:content-[""] after:w-full after:h-full after:leading-[48px] after:left-[30%] after:top-[50%]'></h1>
       <h2 class='text-gray-color text-2xl lg:text-3xl xl:text-4xl'>A FULL-STACK DEVELOPER</h2>
     </div>
     <a href='#Contact' class='flex mt-7 gap-4 justify-center items-center bg-main-color hover:bg-main-color/80 transition-colors p-2 rounded-2xl'>
@@ -21,17 +21,6 @@ import { Icon } from 'astro-icon/components'
 </section>
 
 <style>
-  .name:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    line-height: 48px;
-    left: 30%;
-    top: 50%;
-    animation: typingname 2s linear 1;
-    animation-fill-mode: forwards;
-  }
-
   @keyframes typingname {
   0% {
     content: "J";
