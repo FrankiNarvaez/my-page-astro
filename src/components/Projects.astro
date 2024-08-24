@@ -9,48 +9,9 @@ import socialMedia from '../assets/preview/social-media.png'
 ---
 
 <h3 id='Projects' class='text-main-color text-4xl md:text-6xl font-bold mb-8 mx-[5%] lg:mx-[12%] 2xl:mx-[20%]'>Projects</h3>
-<section class='mx-[5%] lg:mx-[12%] 2xl:mx-[20%] gap-5 mb-10 grid overflow-x-hidden py-3 relative before:absolute before:top-0 before:left-0 before:md:w-20 before:w-10 before:h-full before:bg-gradient-to-r before:from-white-color before:to-white-color/0 before:contenrt-[""] before:z-10 after:absolute after:top-0 after:right-0 after:md:w-20 after:w-10 after:h-full after:bg-gradient-to-l after:from-white-color after:to-white-color/0 after:contenrt-[""] after:z-10'>
-  <div class='flex gap-5 animate-[scroll_40s_linear_infinite] w-[cal(120px * 40)] slider'>
-    <Project 
-      image={memoryGame}
-      title="Memory" 
-      about="Memory game without using JavaScript"
-      tecnologies={['HTML5', 'CSS3']}
-      github="https://github.com/FrankiNarvaez/Memograma"
-      view="https://memory-project-2024.netlify.app/"
-    />
-    <Project 
-      image={imdbPage}
-      title="Movies page" 
-      about="Page to search for movies and celebrities using the IMDB API and display the information"
-      tecnologies={['JavaScript', 'React']}
-      github="https://github.com/FrankiNarvaez/IMDB-page"
-      view="https://cute-medovik-bab83a.netlify.app/"
-    />
-    <Project 
-      image={apiTMDB}
-      title="Api TMDB" 
-      about="This API consumes the TMDB API and returns the information in a more organized way"
-      tecnologies={['Nodejs', 'Express']}
-      github="https://github.com/FrankiNarvaez/API_TMDB"
-      view="https://api-tmdb.herokuapp.com/"
-    />
-    <Project 
-      image={weatherApp}
-      title="Weather App" 
-      about="Page that shows the weather of a location using the OpenWeather API"
-      tecnologies={['HTML5', 'CSS3', 'JavaScript']}
-      github="https://github.com/FrankiNarvaez/connect-API-with-js.gi"
-      view=""
-    />
-    <Project 
-      image={socialMedia}
-      title="Social media" 
-      about="A social media where you can create a profile, upload posts, like other posts, etc."
-      tecnologies={['Nextjs', 'Tailwind', 'TypeScript', 'Nestjs', 'Postgresql']}
-      github="https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories"
-      view=""
-    />
+<section class='mx-[5%] lg:mx-[12%] 2xl:mx-[20%] mb-10 wrapper relative before:absolute before:top-0 before:left-0 before:md:w-20 before:w-10 before:h-full before:bg-gradient-to-r before:from-white-color before:to-white-color/0 before:contenrt-[""] before:z-10 after:absolute after:top-0 after:right-0 after:md:w-20 after:w-10 after:h-full after:bg-gradient-to-l after:from-white-color after:to-white-color/0 after:contenrt-[""] after:z-10'>
+  <i id="button-left" class="fa-solid fa-angle-left z-50"></i>
+  <div class='carousel gap-5 grid grid-flow-col overflow-x-auto scroll-'>
     <Project 
       image={memoryGame}
       title="Memory" 
@@ -92,10 +53,129 @@ import socialMedia from '../assets/preview/social-media.png'
       view=""
     />
   </div>
+  <i id="button-right" class="fa-solid fa-angle-right z-50"></i>
 </section>
 
 <style>
-  .slider:hover {
-    animation-play-state: paused;
+  .wrapper .carousel {
+    scroll-behavior: smooth; /* Animación suave por defecto */
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none; /* WebKit */
+  }
+
+  .wrapper i {
+    height: 50px;
+    width: 50px;
+    background: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .wrapper i:first-child {
+    left: -22px;
+  }
+
+  .wrapper i:last-child {
+    right: -22px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .wrapper i {
+      display: none;
+    }
   }
 </style>
+
+<script>
+  const wrapper = document.querySelector(".wrapper") as HTMLElement;
+  const carousel = document.querySelector(".carousel") as HTMLElement;
+  const arrowButtons = document.querySelectorAll(".wrapper i") as NodeListOf<HTMLElement>;
+  const firstCardWidth = (carousel.querySelector(".card") as HTMLElement).offsetWidth;
+  const carouselChildren = [...carousel.children] as HTMLElement[];
+
+  let isDragging = false;
+  let startX: number;
+  let startScrollLeft: number;
+  let timeOutId: any;
+
+  const cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+  // Clonar las tarjetas para crear un efecto de bucle infinito
+  carouselChildren.slice(-cardPerView).reverse().forEach(card => {
+    const clone = card.cloneNode(true) as HTMLElement;
+    carousel.insertAdjacentElement("afterbegin", clone);
+  });
+
+  carouselChildren.slice(0, cardPerView).forEach(card => {
+    const clone = card.cloneNode(true) as HTMLElement;
+    carousel.insertAdjacentElement("beforeend", clone);
+  });
+
+  arrowButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      carousel.scrollLeft += button.id === "button-left" ? -firstCardWidth : firstCardWidth;
+    });
+  });
+
+  const dragStart = (e: MouseEvent) => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+  };
+
+  const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+  };
+
+  const dragging = (e: MouseEvent) => {
+    if (isDragging) {
+      carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+    }
+  };
+
+  const autoPlay = () => {
+    if (window.innerWidth < 800) return;
+    timeOutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
+  };
+
+  const infiniteScroll = () => {
+    if (carousel.scrollLeft === 0) {
+      // Quitar la animación suave temporalmente
+      carousel.style.scrollBehavior = "auto";
+      carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+      requestAnimationFrame(() => {
+        carousel.style.scrollBehavior = "smooth"; // Restaurar la animación suave
+      });
+    } else if (Math.ceil(carousel.scrollLeft) >= carousel.scrollWidth - carousel.offsetWidth) {
+      // Quitar la animación suave temporalmente
+      carousel.style.scrollBehavior = "auto";
+      carousel.scrollLeft = carousel.offsetWidth;
+      requestAnimationFrame(() => {
+        carousel.style.scrollBehavior = "smooth"; // Restaurar la animación suave
+      });
+    }
+
+    clearTimeout(timeOutId);
+    if (!wrapper.matches(":hover")) autoPlay();
+  };
+
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("mousemove", dragging);
+  document.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("scroll", infiniteScroll);
+  wrapper.addEventListener("mouseenter", () => clearTimeout(timeOutId));
+  wrapper.addEventListener("mouseleave", autoPlay);
+
+  autoPlay();
+</script>

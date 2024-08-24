@@ -15,8 +15,8 @@ interface Props {
 const { title, image, tecnologies, github, view, about } = Astro.props;
 ---
 
-<section class='bg-gray-color/10 hover:bg-opacity-100 p-5 rounded-xl hover:scale-[1.01] w-80 md:w-96'>
-  <Image src={image} alt={title} class='rounded-md mb-4' />
+<section class=' bg-gray-color/10 hover:bg-opacity-100 p-5 rounded-xl hover:scale-[1.01] w-80 md:w-[370px] card'>
+  <Image src={image} alt={title} class='rounded-md mb-4' draggable='false' />
   <section>
     <h3 class='text-3xl'>{title}</h3>
     <p class="text-xl">{about}</p>
