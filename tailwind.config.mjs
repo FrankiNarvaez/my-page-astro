@@ -10,6 +10,8 @@ export default {
 			'black-color': '#1E201E',
 			'gray-project': '#D4D3D3',
 			'gray-black': '#334155',
+			'orange-semi-black': '#9C2B10',
+			'border-color': '#BABABA'
 		}
 	},
 	plugins: [],
