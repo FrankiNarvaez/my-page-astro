@@ -3,10 +3,61 @@ import Project from "./Project.astro";
 
 import memoryGame from '../assets/preview/memory-game.png'
 import imdbPage from '../assets/preview/page-imdb.png'
-import apiTMDB from '../assets/preview/api-tmdb.png'
-import weatherApp from '../assets/preview/wather-location.png'
 import socialMedia from '../assets/preview/social-media.png'
+import { Icon } from 'astro-icon/components'
+
+import { Image } from 'astro:assets'
+
+const tecnologies = ['HTML5', 'CSS3', 'JavaScript']
 ---
 
 <h3 id='Projects' class='text-main-color text-5xl font-bold mb-8 mx-[10%] lg:mx-[20%] 2xl:mx-[30%]'>Projects</h3>
-<section></section>
+<section class="mx-[10%] lg:mx-[20%] 2xl:mx-[30%]">
+  <div class="flex justify-between">
+    <Project
+      title='Memory Game'
+      image={memoryGame}
+      about='A simple memory game made with HTML, CSS and JavaScript.'
+      tecnologies={['HTML5', 'CSS3', 'JavaScript']}
+      github='https://github.com/FrankiNarvaez/memory-game'
+      view='https://frankinarvaez.github.io/memory-game/'
+    />
+    <Project
+      title='IMDb Page'
+      image={imdbPage}
+      about='A simple IMDb page made with HTML, CSS and JavaScript.'
+      tecnologies={['HTML5', 'CSS3', 'JavaScript']}
+      github='https://githun.com/FrankiNarvaez/imdb-page'
+      view='https://frankinarvaez.github.io/imdb-page/'
+    />
+  </div>
+  <section class='bg-gray-color/10 hover:bg-opacity-100 p-5 mt-10 rounded-xl w-full flex justify-between'>
+    <section class="max-w-80">
+      <section>
+        <h3 class='text-2xl text-main-color font-bold mb-4'>Social Media</h3>
+        <p class="text-base mb-2">A simple social media page made with HTML, CSS and JavaScript.</p>
+      </section>
+      <section class='flex flex-wrap'>
+        {tecnologies?.map((tecnology: string) => (
+          <section class='flex gap-1 md:gap-3 items-center mr-3 mt-3 bg-main-color/10 px-2 py-1 rounded-3xl'>
+            <Icon name={tecnology} size={20}/>
+            <p class="text-sm">{tecnology}</p>
+          </section>
+        ))}
+      </section>
+      <section class='flex mt-4'>
+        <a href='https://github.com/FrankiNarvaez/social-media' target="_blank" class='flex gap-1 md:gap-3 mr-3 bg-main-color/10 p-2 rounded-xl'>
+          <Icon name="GitHub" size={20}/>
+          <p class="text-sm">GitHub</p>
+        </a>
+          <a href='https://frankinarvaez.github.io/social-media/' target="_blank" class='flex gap-1 md:gap-3 bg-main-color/10 p-2 rounded-xl'>
+            <Icon name="code" size={20}/>
+            <p class="text-sm">Preview</p>
+          </a>
+      </section>
+    </section>
+    <div class="rounded-md mb-4 overflow-hidden">
+     <Image src={socialMedia} alt='Social Media' class='w-96 object-cover hover:scale-105 transition-all duration-300' draggable='false' />
+    </div>
+  </section>
+</section>

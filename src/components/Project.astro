@@ -14,30 +14,31 @@ interface Props {
 
 const { title, image, tecnologies, github, view, about } = Astro.props;
 ---
-
-<section class=' bg-gray-color/10 hover:bg-opacity-100 p-5 rounded-xl hover:scale-[1.01] w-80 md:w-[370px] card'>
-  <Image src={image} alt={title} class='rounded-md mb-4' draggable='false' />
+<section class='bg-gray-color/10 hover:bg-opacity-100 p-5 rounded-xl w-96'>
+  <div class="overflow-hidden rounded-md">
+    <Image src={image} alt={title} class='object-cover hover:scale-105 hover:brightness-110 transition-all duration-300' draggable='false' />
+  </div>
   <section>
-    <h3 class='text-3xl'>{title}</h3>
-    <p class="text-xl">{about}</p>
+    <h3 class='text-2xl text-main-color font-bold my-4'>{title}</h3>
+    <p class="text-base mb-2">{about}</p>
   </section>
   <section class='flex flex-wrap'>
     {tecnologies?.map((tecnology: string) => (
-      <section class='flex gap-1 mt-3 md:gap-3 items-center mr-3 bg-main-color/10 p-2 rounded-3xl'>
-        <Icon name={tecnology} size={25}/>
-        <p>{tecnology}</p>
+      <section class='flex gap-1 mt-3 md:gap-3 items-center mr-3 bg-main-color/10 px-2 py-1 rounded-3xl'>
+        <Icon name={tecnology} size={20}/>
+        <p class="text-sm">{tecnology}</p>
       </section>
     ))}
   </section>
-  <section class='flex mt-3'>
+  <section class='flex mt-4'>
     <a href={github} target="_blank" class='flex gap-1 md:gap-3 mr-3 bg-main-color/10 p-2 rounded-xl'>
-      <Icon name="GitHub" size={25}/>
-      <p>GitHub</p>
+      <Icon name="GitHub" size={20}/>
+      <p class="text-sm">GitHub</p>
     </a>
     {view !== '' && (
       <a href={view} target="_blank" class='flex gap-1 md:gap-3 bg-main-color/10 p-2 rounded-xl'>
-        <Icon name="code" size={25}/>
-        <p>View</p>
+        <Icon name="code" size={20  }/>
+        <p class="text-sm">Preview</p>
       </a>
     )}
   </section>
