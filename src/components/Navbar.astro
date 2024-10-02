@@ -2,27 +2,27 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<nav class='h-20 bg-main-color/70 flex items-center justify-center sm:justify-between px-[5%] lg:px-[12%] 2xl:px-[20%]'>
-  <h2 class='text-white-color text-3xl hover:scale-110 font-bold hidden sm:block'>JC</h2>
-  <ul class='list-none flex flex-row gap-5 md:gap-14 text-white-color text-lg md:text-2xl'>
+<nav class='h-20 bg-white-color/70 flex items-center justify-center sm:justify-between px-[5%] lg:px-[12%] 2xl:px-[20%]'>
+  <h2 class='text-main-color text-3xl text hover:scale-110 font-extrabold hidden sm:block'>JC</h2>
+  <ul class='list-none flex flex-row gap-5 md:gap-14 text-gray-black text-xs md:text-sm font-medium'>
     <a href="#Home">
-      <li class='hover:underline'>Home</li>  
+      <li class='hover:underline leading-6'>Home</li>  
     </a>
     <a href="#About">
-      <li class='hover:underline'>About</li>
+      <li class='hover:underline leading-6'>About</li>
     </a>
     <a href="#Projects">
-      <li class='hover:underline'>Projects</li>
+      <li class='hover:underline leading-6'>Projects</li>
     </a><a href="#Contact">
-      <li class='hover:underline'>Contact</li>
+      <li class='hover:underline leading-6'>Contact</li>
     </a>
   </ul>
   <div class='hidden sm:flex gap-5'>
     <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
-      <Icon name='linkedin' size={30} class='text-white-color hover:scale-110 hidden sm:block' />
+      <Icon name='linkedin' size={20} class='text-gray-black hover:scale-110 hidden sm:block' />
     </a>
     <a href="https://github.com/FrankiNarvaez" target="_blank">
-      <Icon name='GitHub' size={30} class='text-white-color hover:scale-110 hidden sm:block' />
+      <Icon name='GitHub' size={20} class='text-gray-black hover:scale-110 hidden sm:block' />
     </a>
   </div>
 </nav>

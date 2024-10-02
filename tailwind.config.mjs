@@ -4,11 +4,12 @@ export default {
 	theme: {
 		extend: {},
 		colors: {
-			'main-color': '#864AF9',
+			'main-color': '#008FD4',
 			'white-color': '#F8FCFB',
 			'gray-color': '#9f9f9f',
 			'black-color': '#1E201E',
-			'gray-project': '#D4D3D3'
+			'gray-project': '#D4D3D3',
+			'gray-black': '#334155',
 		}
 	},
 	plugins: [],
