@@ -2,9 +2,9 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<nav class='h-20 backdrop-blur-md flex items-center justify-center sm:justify-between px-[5%] lg:px-[12%] 2xl:px-[20%] fixed w-full z-10'>
-  <h2 class='text-main-color text-3xl text hover:scale-110 font-extrabold hidden sm:block'>JC</h2>
-  <ul class='list-none flex flex-row gap-5 md:gap-14 text-gray-black text-base font-medium'>
+<nav class='h-20 backdrop-blur-md flex items-center justify-between px-[5%] lg:px-[12%] 2xl:px-[20%] fixed w-full z-10'>
+  <a href="/" class='text-main-color text-3xl text hover:scale-110 font-extrabold'>JC</a>
+  <ul class='list-none hidden sm:flex sm:flex-row gap-5 md:gap-14 text-gray-black text-base font-medium'>
     <a href="#Home">
       <li class='hover:underline'>Home</li>  
     </a>
@@ -17,6 +17,11 @@ import { Icon } from 'astro-icon/components'
       <li class='hover:underline'>Contact</li>
     </a>
   </ul>
+  <div class='flex sm:hidden gap-5'>
+    <button class='text-gray-black hover:scale-110'>
+      <Icon name='menu' size={20} />
+    </button>
+  </div>
   <div class='hidden sm:flex gap-5'>
     <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
       <Icon name='linkedin' size={20} class='text-gray-black hover:scale-110 hidden sm:block' />
