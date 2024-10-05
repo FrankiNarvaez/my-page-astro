@@ -7,9 +7,12 @@ interface Props {
 }
 
 const { technologie, color } = Astro.props;
-console.log(color)
 ---
 
-<div class=`w-20 h-20 bg-[${color}]/60 m-4 flex items-center justify-center rounded-3xl hover:border hover:border-[${color}]`>
+<li 
+  class="w-20 h-20 flex items-center justify-center rounded-3xl hover:border"
+  style={`background-color: ${color}30; border-color: ${color}`}
+  title={technologie}
+>
   <Icon name={technologie} size={40}/>
-</div>
+</li>
