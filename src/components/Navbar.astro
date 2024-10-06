@@ -30,7 +30,7 @@ import { Icon } from 'astro-icon/components'
           <Icon name="light" size={15} class='text-gray-black dark:text-white-color'/>
         </button>
         <button class="p-2 text-sm rounded-lg md:hidden" title="Menu nav">
-          <Icon name='menu' size={20} />
+          <Icon name='menu' size={20} class='text-gray-black dark:text-white-color' />
         </button>
       </div>
     </div>
@@ -75,18 +75,28 @@ import { Icon } from 'astro-icon/components'
 
 <script>
   // Modo oscuro
-  const themeToggleButton = document.querySelector('button[title="Theme switcher button"]') as HTMLButtonElement;
+  const themeToggleButtons = document.querySelectorAll('button[title="Theme switcher button"]');
 
-  // Cambiar el tema cuando se hace clic en el botón
-  themeToggleButton.addEventListener('click', () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
+  themeToggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
   });
+
+  // Configuración inicial del tema según el localStorage o el sistema
+  const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+  if (currentTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 
   // Lógica para el menú, ya existente
   const menuButton = document.querySelector('button[title="Menu nav"]');
