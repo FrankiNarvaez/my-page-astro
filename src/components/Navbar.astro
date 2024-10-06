@@ -75,7 +75,7 @@ import { Icon } from 'astro-icon/components'
 
 <script>
   // Modo oscuro
-  const themeToggleButton = document.querySelector('button[title="Theme switcher button"]');
+  const themeToggleButton = document.querySelector('button[title="Theme switcher button"]') as HTMLButtonElement;
 
   // Cambiar el tema cuando se hace clic en el botón
   themeToggleButton.addEventListener('click', () => {
