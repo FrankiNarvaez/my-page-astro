@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -21,12 +21,14 @@ const { title } = Astro.props;
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 	</head>
-	<body>
+	<body class="bg-white-color dark:bg-black-color">
 		<slot />
 	</body>
 </html>
 <style is:global>
-	
+	:root {
+		color-scheme: dark light;
+	}
 	* {
 		margin: 0;
 		padding: 0;
@@ -34,6 +36,5 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: "Onest", sans-serif;
-		background: #F8FCFB;
 	}
 </style>

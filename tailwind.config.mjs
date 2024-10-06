@@ -2,17 +2,20 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
-		colors: {
-			'main-color': '#008FD4',
-			'white-color': '#F8FCFB',
-			'gray-color': '#9f9f9f',
-			'black-color': '#1E201E',
-			'gray-project': '#D4D3D3',
-			'gray-black': '#334155',
-			'orange-semi-black': '#9C2B10',
-			'border-color': '#BABABA'
-		}
+		extend: {
+			colors: {
+				'main-color': '#008FD4',
+				'white-color': '#F8FCFB',
+				'gray-color': '#9f9f9f',
+				'black-color': '#1E201E',
+				'gray-project': '#D4D3D3',
+				'gray-black': '#334155',
+				'orange-semi-black': '#9C2B10',
+				'orange-semi-white': '#fb5607',
+				'border-color': '#BABABA'
+			}
+		},
 	},
 	plugins: [],
+	darkMode: 'class',
 }

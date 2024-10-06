@@ -8,30 +8,34 @@ import { Icon } from 'astro-icon/components'
       JC
     </a>
     <div class="md:order-2">
-      <ul class="hidden md:flex md:space-x-8 items-center">
+      <ul class="hidden md:flex gap-8 md:items-center">
         <li>
           <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank" aria-label="Visit my LinkedId profile">
-            <Icon name='linkedin' size={15} class='text-gray-black hover:scale-110 transition-all duration-300'/>
+            <Icon name='linkedin' size={15} class='text-gray-black dark:text-white-color hover:scale-110 transition-all duration-300'/>
           </a>
         </li>
         <li>
           <a href="https://github.com/FrankiNarvaez" target="_blank"  aria-label="Visit my Github profile">
-            <Icon name='GitHub' size={15} class='text-gray-black hover:scale-110 transition-all duration-300'/>
+            <Icon name='GitHub' size={15} class='text-gray-black  dark:text-white-color hover:scale-110 transition-all duration-300'/>
           </a>
         </li>
-        <li>
-          <button class="rounded-md" title="Theme switcher button"></button>
-        </li>
+        <li class="flex items-center">
+          <button class="rounded-md hover:scale-110 transition-all duration-300" title="Theme switcher button">
+            <Icon name="light" size={15} class='text-gray-black dark:text-white-color'/>
+          </button>
+        </li>        
       </ul>
       <div class="flex items-center">
-        <button class="p-1 rounded-md  md:hidden" title="Theme switcher button"></button>
+        <button class="p-1 rounded-md md:hidden" title="Theme switcher button">
+          <Icon name="light" size={15} class='text-gray-black dark:text-white-color'/>
+        </button>
         <button class="p-2 text-sm rounded-lg md:hidden" title="Menu nav">
           <Icon name='menu' size={20} />
         </button>
       </div>
     </div>
     <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-500 hidden">
-      <ul class="flex flex-col gap-10 p-4 md:p-0 mt-4 font-medium  md:flex-row  md:mt-0 md:border-0 text-gray-black">
+      <ul class="flex flex-col gap-10 p-4 md:p-0 mt-4 font-medium  md:flex-row  md:mt-0 md:border-0 text-gray-black dark:text-white-color dark:font-normal">
         <li class="text-center">
           <a href="#Home" class="hover:underline">
             Home
@@ -56,12 +60,12 @@ import { Icon } from 'astro-icon/components'
       <ul class="flex justify-center space-x-8 my-4 md:hidden">
         <li>
           <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
-            <Icon name='linkedin' size={15} class='text-gray-black'/>
+            <Icon name='linkedin' size={15} class='text-gray-black dark:text-white-color'/>
           </a>
         </li>
         <li>
           <a href="https://github.com/FrankiNarvaez" target="_blank">
-            <Icon name='GitHub' size={15} class='text-gray-black'/>
+            <Icon name='GitHub' size={15} class='text-gray-black dark:text-white-color'/>
           </a>
         </li>
       </ul>
@@ -70,10 +74,23 @@ import { Icon } from 'astro-icon/components'
 </header>
 
 <script>
-  // Button with title menu to open the menu, and logics to open and close the menu
-  const menuButton = document.querySelector('button[title="Menu nav"]') as HTMLButtonElement | null;
-  // apply hidden to div with class items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-500
-  const menuNav = document.querySelector('.items-center.justify-between.w-full.md\\:flex.md\\:w-auto.md\\:order-1.transition-all.duration-500') as HTMLDivElement | null;
+  // Modo oscuro
+  const themeToggleButton = document.querySelector('button[title="Theme switcher button"]');
+
+  // Cambiar el tema cuando se hace clic en el botón
+  themeToggleButton.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // Lógica para el menú, ya existente
+  const menuButton = document.querySelector('button[title="Menu nav"]');
+  const menuNav = document.querySelector('.items-center.justify-between.w-full.md\\:flex.md\\:w-auto.md\\:order-1.transition-all.duration-500');
   
   if (menuButton && menuNav) {
     menuButton.addEventListener('click', () => {
