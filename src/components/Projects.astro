@@ -4,14 +4,9 @@ import Project from "./Project.astro";
 import memoryGame from '../assets/preview/memory-game.png'
 import imdbPage from '../assets/preview/page-imdb.png'
 import socialMedia from '../assets/preview/social-media.png'
-import { Icon } from 'astro-icon/components'
-
-import { Image } from 'astro:assets'
-
-const tecnologies = ['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL', 'AWS', 'TypeORM']
 ---
 
-<h3 id='Projects' class='text-gray-black text-5xl font-bold mb-8 mx-[10%] lg:mx-[20%] 2xl:mx-[25%] mt-4'>Projects</h3>
+<h3 id='Projects' class='text-gray-black text-5xl font-bold mb-8 mt-4 mx-[10%] lg:mx-[20%] 2xl:mx-[25%]'>Projects</h3>
 <section class="mx-[10%] lg:mx-[20%] 2xl:mx-[25%]">
   <div class="flex flex-col md:flex-row justify-between gap-4">
     <Project
@@ -22,6 +17,7 @@ const tecnologies = ['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL',
       github='https://github.com/FrankiNarvaez/memory-game'
       view='https://memory-game-html5-css3.netlify.app/'
       type="FrontEnd"
+      rowReverse=""
     />
     <Project
       title='IMDb Page'
@@ -31,36 +27,18 @@ const tecnologies = ['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL',
       github='https://github.com/FrankiNarvaez/IMDB-page'
       view='https://imdb-pag.netlify.app/'
       type="FrontEnd"
+      rowReverse=""
     />
   </div>
-  <section class='bg-neutral-100 dark:bg-zinc-800 p-2 mt-4 rounded-3xl w-full flex justify-between flex-col-reverse md:flex-row relative drop-shadow-md'>
-    <div class="absolute right-4 top-4 backdrop-blur-md bg-slate-600/40 py-1 px-2 rounded-xl text-white z-20">FullStack</div>
-    <section class="max-w-80">
-      <section>
-        <h3 class='text-xl text-main-color font-bold my-2 md:mt-0'>Social Media</h3>
-        <p class="text-base mb-2 text-gray-black dark:text-text-white">Social media where you can upload posts, see posts, follow people, and more.</p>
-      </section>
-      <section class='flex flex-wrap gap-2'>
-        {tecnologies?.map((tecnology: string) => (
-          <section class='flex items-center gap-1 md:gap-3 px-2 py-1 rounded-xl bg-gray-100 border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 border'>
-            <Icon name={tecnology} size={20}/>
-            <p class="text-xs sm:text-sm text-gray-black dark:text-text-white">{tecnology}</p>
-          </section>
-        ))}
-      </section>
-      <section class='flex mt-4 h-8'>
-        <a 
-          href='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories' 
-          target="_blank" class='flex items-center gap-1 md:gap-3 px-2 rounded-3xl bg-gray-100 border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 dark:text-white/50 border hover:bg-gray-800 hover:text-white dark:hover:text-black dark:hover:bg-zinc-100 dark:hover:border-zinc-300'
-          >
-          <Icon name="github" size={20} />
-          <p class="text-xs sm:text-sm">GitHub</p>
-        </a>
-      </section>
-    </section>
-    <div class="rounded-2xl md:mb-4 overflow-hidden">
-     <Image src={socialMedia} alt='Social Media' class='md:w-96 object-cover hover:scale-105 transition-all duration-300' draggable='false' />
-    </div>
-  </section>
+    <Project
+      title='Social Media'
+      image={socialMedia}
+      about='Social media where you can upload posts, see posts, follow people, and more.'
+      tecnologies={['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL', 'AWS', 'TypeORM']}
+      github='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories'
+      view=''
+      type='FullStack'
+      rowReverse='block md:flex md:flex-row-reverse mt-4'
+    />
   <a href="/projects" class="text-main-color font-bold mt-10 flex justify-center animate-pulse hover:underline hover:animate-none">More projects →</a>
 </section>
