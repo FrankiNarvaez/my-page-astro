@@ -16,7 +16,7 @@ interface Props {
 
 const { title, image, tecnologies, github, view, about, type, rowReverse } = Astro.props;
 ---
-<section class={`bg-neutral-100 dark:bg-zinc-800 p-2 rounded-3xl md:w-auto drop-shadow-md ${rowReverse}`}>
+<section class={`bg-neutral-100 dark:bg-zinc-800 p-2 rounded-3xl md:w-auto drop-shadow-md ${rowReverse || "block"}`}>
   <div class="absolute backdrop-blur-md bg-slate-600/50 py-1 px-2 rounded-xl text-white m-2 z-20">{type}</div>
   <div class="overflow-hidden rounded-2xl">
     <Image src={image} alt={title} class='object-cover hover:scale-105 hover:brightness-110 transition-all duration-300' draggable='false' />
