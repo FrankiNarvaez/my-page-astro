@@ -1,5 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
+
+const currentPath = Astro.url.pathname
 ---
 
 <header class="backdrop-blur-md fixed w-full z-20 top-0 left-0">
@@ -8,7 +10,7 @@ import { Icon } from 'astro-icon/components'
       JC
     </a>
     <div class="md:order-2">
-      <ul class="hidden md:flex gap-8 md:items-center">
+      <ul class={`${currentPath === "/projects" ? "flex items-center" : "hidden md:flex md:items-center"} gap-8`}>
         <li>
           <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank" aria-label="Visit my LinkedId profile">
             <Icon name='linkedin' size={15} class='text-gray-black dark:text-white-color hover:scale-110 transition-all duration-300'/>
@@ -25,51 +27,53 @@ import { Icon } from 'astro-icon/components'
           </button>
         </li>        
       </ul>
-      <div class="flex items-center">
-        <button class="p-1 rounded-md md:hidden" title="Theme switcher button">
+      <div class={`flex items-center ${currentPath === "/projects" ? "hidden" : "md:hidden"}`}>
+        <button class="p-1 rounded-md" title="Theme switcher button">
           <Icon name="light" size={15} class='text-gray-black dark:text-white-color'/>
         </button>
-        <button class="p-2 text-sm rounded-lg md:hidden" title="Menu nav">
+        <button class="p-2 text-sm rounded-lg" title="Menu nav">
           <Icon name='menu' size={20} class='text-gray-black dark:text-white-color' />
         </button>
       </div>
     </div>
-    <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-500 hidden">
-      <ul class="flex flex-col gap-10 p-4 md:p-0 mt-4 font-medium  md:flex-row  md:mt-0 md:border-0 text-gray-black dark:text-white-color dark:font-normal">
-        <li class="text-center">
-          <a href="#Home" class="hover:underline">
-            Home
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#Projects" class="hover:underline">
-            Projects
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#About" class="hover:underline">
-            About me
-          </a>
-        </li>
-        <li class="text-center">
-          <a href="#Contact" class="hover:underline">
-            Contact
-          </a>
-        </li>
-      </ul>
-      <ul class="flex justify-center space-x-8 my-4 md:hidden">
-        <li>
-          <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
-            <Icon name='linkedin' size={15} class='text-gray-black dark:text-white-color'/>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/FrankiNarvaez" target="_blank">
-            <Icon name='GitHub' size={15} class='text-gray-black dark:text-white-color'/>
-          </a>
-        </li>
-      </ul>
-    </div>
+    { currentPath != "/projects" && (  
+      <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-500 hidden">
+        <ul class="flex flex-col gap-10 p-4 md:p-0 mt-4 font-medium  md:flex-row  md:mt-0 md:border-0 text-gray-black dark:text-white-color dark:font-normal">
+          <li class="text-center">
+            <a href="#Home" class="hover:underline">
+              Home
+            </a>
+          </li>
+          <li class="text-center">
+            <a href="#Projects" class="hover:underline">
+              Projects
+            </a>
+          </li>
+          <li class="text-center">
+            <a href="#About" class="hover:underline">
+              About me
+            </a>
+          </li>
+          <li class="text-center">
+            <a href="#Contact" class="hover:underline">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <ul class="flex justify-center space-x-8 my-4 md:hidden">
+          <li>
+            <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
+              <Icon name='linkedin' size={15} class='text-gray-black dark:text-white-color'/>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/FrankiNarvaez" target="_blank">
+              <Icon name='GitHub' size={15} class='text-gray-black dark:text-white-color'/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    )}
   </nav>
 </header>
 
