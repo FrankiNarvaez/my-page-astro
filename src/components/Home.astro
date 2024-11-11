@@ -1,5 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components'
+
+const socialMedias = [
+  {
+    href: "https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/",
+    icon: "LinkedIn",
+    name: "LinkedIn"
+  },
+  {
+    href: "https://github.com/FrankiNarvaez",
+    icon: "github",
+    name: "GitHub"
+  },
+  {
+    href: "mailto:frannki03@gmail.com",
+    icon: "email",
+    name: "frannki03@gmail.com"
+  }
+]
 ---
 
 <section id='Home' class='flex mx-[10%] lg:mx-[20%] 2xl:mx-[25%] justify-center md:justify-between md:pt-[30vh] pb-[1%] flex-col h-[100vh]'>
@@ -8,29 +26,16 @@ import { Icon } from 'astro-icon/components'
       <h2 class='text-gray-black/70 dark:text-white-color/60 text-lg font-semibold'>FULL-STACK DEVELOPER</h2>
       <p class="text-gray-black mt-10 text-base"><span class="text-orange-semi-black dark:text-orange-semi-white">Computer science student and web developer</span>, <br> <span class="text-main-color">Specialized in creating robust web solutions</span>.</p>
       <div class="flex gap-4 mt-10 flex-wrap">
-        <a 
-          href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" 
-          target="_blank" 
-          class="border-2 rounded-2xl py-1 px-2 flex gap-2 justify-around items-center border-border-color dark:border-border-color/40 hover:scale-105 transition-all duration-300 text-gray-black dark:text-text-white"
-          >
-          <Icon name='linkedin' size={15} class='text-gray-black dark:text-text-white' /> 
-          LinkedIn
-        </a>
-        <a 
-          href="https://github.com/FrankiNarvaez" 
-          target="_blank" 
-          class="border-2 rounded-2xl p-1 flex gap-2 justify-around items-center border-border-color dark:border-border-color/40 hover:scale-105 transition-all duration-300 text-gray-black dark:text-text-white"
-          >
-          <Icon name='GitHub' size={20} class='text-gray-black dark:text-text-white' />
-          GitHub
-        </a>
-        <a 
-          href="mailto:frannki03@gmail.com"
-          class="border-2 rounded-2xl p-1 flex gap-2 justify-around items-center border-border-color dark:border-border-color/40 hover:scale-105 transition-all duration-300 text-gray-black dark:text-text-white"
-          >
-          <Icon name='gmail' size={20} class='text-gray-black dark:text-text-white' />
-          frannki03@gmail.com
-        </a>
+        {socialMedias.map((social) => (  
+          <a 
+            href={social.href}
+            target="_blank"
+            class="bg-gray-100 border border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 rounded-2xl flex items-center gap-2 py-1 px-2 hover:scale-105 transition-all duration-300 text-gray-black dark:text-text-white"
+            >
+            <Icon name={social.icon} size={20} class='text-gray-black dark:text-text-white' /> 
+            {social.name}
+          </a>
+        ))}
       </div>
     </div>
     <a href="/#Projects" class="animate-bounce hidden text-main-color text-xl font-bold md:flex justify-center hover:underline">Projects ↓</a>
