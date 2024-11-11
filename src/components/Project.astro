@@ -15,32 +15,32 @@ interface Props {
 
 const { title, image, tecnologies, github, view, about, type } = Astro.props;
 ---
-<section class='bg-neutral-100 dark:bg-zinc-800 p-2 rounded-3xl w-full md:w-96 drop-shadow-md'>
+<section class='bg-neutral-100 dark:bg-zinc-800 p-2 rounded-3xl md:w-auto drop-shadow-md'>
   <div class="absolute backdrop-blur-md bg-slate-600/50 py-1 px-2 rounded-xl text-white m-2 z-20">{type}</div>
   <div class="overflow-hidden rounded-2xl">
     <Image src={image} alt={title} class='object-cover hover:scale-105 hover:brightness-110 transition-all duration-300' draggable='false' />
   </div>
   <section>
-    <h3 class='text-2xl text-main-color font-bold my-4'>{title}</h3>
+    <h3 class='text-xl text-main-color font-bold my-2'>{title}</h3>
     <p class="text-base mb-2 text-gray-black dark:text-text-white">{about}</p>
   </section>
   <section class='flex flex-wrap'>
     {tecnologies?.map((tecnology: string) => (
     <section class='flex gap-1 mt-3 md:gap-3 items-center mr-3 bg-gray-100 border border-gray-300 dark:bg-zinc-800 dark:border-zinc-700 px-2 py-1 rounded-xl'>
         <Icon name={tecnology} size={20} />
-        <p class="text-sm text-gray-black dark:text-text-white">{tecnology}</p>
+        <p class="text-xs text-gray-black dark:text-text-white">{tecnology}</p>
       </section>
     ))}
   </section>
   <section class='flex mt-4 gap-2 h-8'>
     <a href={github} target="_blank" class='flex items-center px-2 gap-1 md:gap-3 bg-gray-100 border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 dark:text-white/50 border rounded-3xl hover:bg-gray-800 hover:text-white dark:hover:text-black dark:hover:bg-zinc-100 dark:hover:border-zinc-300'>
       <Icon name="github" size={20} />
-      <p class="text-sm">GitHub</p>
+      <p class="text-xs">GitHub</p>
     </a>
     {view !== '' && (
     <a href={view} target="_blank" class="flex items-center gap-1 md:gap-3 px-2 rounded-3xl bg-gray-100 border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 dark:text-white/50 border hover:bg-gray-800 hover:text-white dark:hover:text-black dark:hover:bg-zinc-100 dark:hover:border-zinc-300">
         <Icon name="Link" size={20 } />
-        <p class="text-sm">Preview</p>
+        <p class="text-xs">Preview</p>
       </a>
     )}
   </section>
