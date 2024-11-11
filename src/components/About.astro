@@ -1,9 +1,12 @@
 ---
+import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import cat from '../assets/cat.png'
+
+import CV from '../assets/FrankiCV.pdf'
 ---
 
-<section id='About' class='mx-[10%] lg:mx-[20%] 2xl:mx-[25%] mt-10 flex justify-between mb-20 flex-col-reverse md:flex-row'>
+<section id='About' class='mx-[10%] lg:mx-[20%] 2xl:mx-[25%] mt-10 flex justify-between mb-5 flex-col-reverse md:flex-row'>
   <div class="md:max-w-md">
     <h3 class='text-main-color text-5xl font-bold mb-8'>About me</h3>
     <p class='text-base pb-10 text-gray-black dark:text-text-white'>
@@ -17,3 +20,6 @@ import cat from '../assets/cat.png'
     <Image src={cat} alt='cat' />
   </div>
 </section>
+<div class='mx-[10%] lg:mx-[20%] 2xl:mx-[25%] flex justify-center mb-4'>
+  <a href="https://heyzine.com/flip-book/6f0b80c403.html" download class='flex justify-center gap-3 bg-main-color text-white py-2 px-4 rounded-3xl hover:bg-main-color/70' target='_blank'>Curriculum <Icon name="cv" size={20}/></a>
+</div>
