@@ -1,13 +1,12 @@
 ---
 const id = import.meta.env.PUBLIC_ID_FORMSPREE
-const formspreeEndpoint = id; // Cambia este enlace por el tuyo
 ---
 
 <section id="Contact" class="mx-[10%] lg:mx-[20%] 2xl:mx-[25%] mt-7 relative">
   <h2 class="text-5xl text-gray-black font-bold dark:text-text-white">Contact Me</h2>
   <p class="text-gray-black dark:text-text-white my-2">Feel free to reach out by sending me a message below!</p>
 
-  <form action={formspreeEndpoint} method="POST" class="contact-form md:flex gap-4">
+  <form action={id} method="POST" class="contact-form md:flex gap-4">
     <div class="w-full">
       <div class="mb-4">
         <label for="name" class="text-gray-black dark:text-text-white">Name</label>
