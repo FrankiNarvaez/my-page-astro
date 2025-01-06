@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <header class="backdrop-blur-md fixed w-full z-30 top-0 left-0" id="main-header">
-  <section class="container px-2 lg:max-w-[1114px] flex flex-wrap items-center justify-between mx-auto py-4 ">
+  <section class="container px-2 lg:max-w-[1114px] flex flex-wrap items-center justify-between mx-auto py-4">
     <a class="flex text-main-color gap-2 items-center self-center text-3xl font-black whitespace-nowrap" href="/">
       &lt;JC/&gt;
     </a>
@@ -18,11 +18,11 @@ import { Icon } from 'astro-icon/components'
         <Icon name="light" size={20} class='text-gray-black dark:text-white-color'/>
       </button>
     </div>
-    <div class="flex items-center">
-      <button class="p-1 rounded-md md:hidden bg-gray-400/40" title="Theme switcher button">
+    <div class="flex items-center md:hidden">
+      <button class="p-1 rounded-md bg-gray-400/40" title="Theme switcher button">
         <Icon name="light" size={20} class='text-gray-black dark:text-white-color'/>
       </button>
-      <button class="p-2 text-sm rounded-lg md:hidden" title="Menu nav">
+      <button class="p-2 text-sm rounded-lg" title="Menu nav">
         <Icon name='menu' size={20} class='text-gray-black dark:text-white-color' />
       </button>
     </div>
