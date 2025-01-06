@@ -1,36 +1,36 @@
 ---
 import Project from "./Project.astro";
 
-import memoryGame from '../assets/preview/memory-game.png'
-import imdbPage from '../assets/preview/page-imdb.png'
 import socialMedia from '../assets/preview/social-media.png'
+import finance from '../assets/preview/finance.png'
+import eccomerceRails from '../assets/preview/eccomerce-rails.png'
 ---
 
 <h3 id='Projects' class='text-gray-black dark:text-text-white text-5xl font-bold mb-8 mt-4'>Projects</h3>
 <section>
   <div class="flex flex-col md:flex-row justify-between gap-4">
     <Project
-      title='Memory Game'
-      image={memoryGame}
-      about='A simple memory game made with HTML without JavaScript.'
-      tecnologies={['HTML5', 'CSS3']}
-      github='https://github.com/FrankiNarvaez/memory-game'
-      view='https://memory-game-html5-css3.netlify.app/'
-      type="FrontEnd"
-      rowReverse=""
-    />
+        title='Finance'
+        image={finance}
+        about='Manage your personal finances.'
+        tecnologies={['Rails', 'PostgreSQL']}
+        github='https://github.com/FrankiNarvaez/Finance'
+        view=''
+        type="FullStack"
+        rowReverse=''
+        />
     <Project
-      title='IMDb Page'
-      image={imdbPage}
-      about='IMDB page to search for movies and series, and see their details.'
-      tecnologies={['React', 'JavaScript']}
-      github='https://github.com/FrankiNarvaez/IMDB-page'
-      view='https://imdb-pag.netlify.app/'
-      type='FrontEnd'
-      rowReverse=''
-    />
+        title='Eccomerce'
+        image={eccomerceRails}
+        about='Eccomerce done with Ruby On Rails, where you can create an acount and up your products, and a litte more.'
+        tecnologies={['Rails', 'PostgreSQL']}
+        github='https://github.com/FrankiNarvaez/E-commerce-Rails'
+        view=''
+        type="FullStack"
+        rowReverse=''
+        />
   </div>
-    <Project
+  <Project
       title='Social Media'
       image={socialMedia}
       about='Social media where you can upload posts, see posts, follow people, and more.'
@@ -39,6 +39,6 @@ import socialMedia from '../assets/preview/social-media.png'
       view=''
       type='FullStack'
       rowReverse='block md:flex md:flex-row-reverse mt-4'
-    />
+  />
   <a href="/projects" class="text-main-color font-bold mt-10 flex justify-center animate-pulse hover:underline hover:animate-none">More projects →</a>
 </section>
