@@ -14,13 +14,15 @@ import { Icon } from 'astro-icon/components'
       <a href="https://github.com/FrankiNarvaez" target="_blank"  aria-label="Visit my Github profile">
         <Icon name='GitHub' size={20} class='text-gray-black  dark:text-white-color hover:scale-110 transition-all duration-300'/>
       </a>
-      <button class="rounded-md hover:scale-110 transition-all duration-300 bg-gray-400/40 p-1 ml-2" title="Theme switcher button">
-        <Icon name="light" size={20} class='text-gray-black dark:text-white-color'/>
+      <button class="rounded-md hover:scale-110 transition-all duration-300 bg-gray-400/40 p-1 ml-2 theme-btn">
+        <Icon name="night" size={20} class='text-gray-black dark:text-white-color block dark:hidden'/>
+        <Icon name="light" size={20} class='text-gray-black dark:text-white-color hidden dark:block'/>
       </button>
     </div>
     <div class="flex items-center md:hidden">
-      <button class="p-1 rounded-md bg-gray-400/40" title="Theme switcher button">
-        <Icon name="light" size={20} class='text-gray-black dark:text-white-color'/>
+      <button class="p-1 rounded-md bg-gray-400/40 theme-btn">
+        <Icon name="night" size={20} class='text-gray-black dark:text-white-color block dark:hidden'/>
+        <Icon name="light" size={20} class='text-gray-black dark:text-white-color hidden dark:block'/>
       </button>
       <button class="p-2 text-sm rounded-lg" title="Menu nav">
         <Icon name='menu' size={20} class='text-gray-black dark:text-white-color' />
@@ -48,17 +50,11 @@ import { Icon } from 'astro-icon/components'
 
 <script>
   // Modo oscuro
-  const themeToggleButtons = document.querySelectorAll('button[title="Theme switcher button"]');
+  const $themeButtons = document.querySelectorAll('.theme-btn');
 
-  themeToggleButtons.forEach(button => {
+  $themeButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      }
+      document.documentElement.classList.toggle('dark')
     });
   });
 
