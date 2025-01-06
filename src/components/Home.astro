@@ -22,17 +22,17 @@ const socialMedias = [
 
 <section id='Home' class='flex justify-center md:flex-row md:justify-between items-center flex-col h-[100vh]'>
   <div class='flex flex-col'>
-    <h1 class='text-gray-black dark:text-text-black text-5xl font-bold'>Hi! <span class='text-main-color '>i'm Jhan Carlos</span> </h1>
-    <h2 class='text-gray-black/70 dark:text-black-color/60 text-lg font-semibold'>FULL-STACK DEVELOPER</h2>
-    <p class="text-gray-black dark:text-text-black mt-10 text-base max-w-sm"><span class="text-orange-semi-black dark:text-orange-semi-black/80">Computer science student and web developer</span>, specialized in creating <span class="text-main-color dark:text-main-color/80">robust web solutions.</span> Driven by a passion for technology, I’m dedicated to delivering <span class="text-main-color dark:text-main-color/80">creative, efficient, and impactful</span> solutions that transform <span class="text-orange-semi-black dark:text-orange-semi-black/80">ideas into reality</span>.</p>
+    <h1 class='text-gray-black dark:text-text-white text-5xl font-bold'>Hi! <span class='text-main-color '>i'm Jhan Carlos</span> </h1>
+    <h2 class='text-gray-black/70 dark:text-white-color/60 text-lg font-semibold'>FULL-STACK DEVELOPER</h2>
+    <p class="text-gray-black dark:text-text-white mt-10 text-base max-w-sm"><span class="text-orange-semi-black dark:text-orange-semi-white/80">Computer science student and web developer</span>, specialized in creating <span class="text-main-color dark:text-main-color/80">robust web solutions.</span> Driven by a passion for technology, I’m dedicated to delivering <span class="text-main-color dark:text-main-color/80">creative, efficient, and impactful</span> solutions that transform <span class="text-orange-semi-black dark:text-orange-semi-white/80">ideas into reality</span>.</p>
     <div class="flex gap-4 mt-10 flex-wrap">
       {socialMedias.map((social) => (  
         <a 
           href={social.href}
           target="_blank"
-          class="bg-gray-100 border border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 rounded-2xl flex items-center gap-2 py-1 px-2 hover:scale-105 transition-all duration-300 text-gray-black dark:text-text-black"
+          class="bg-gray-100 border border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 rounded-2xl flex items-center gap-2 py-1 px-2 hover:scale-105 transition-transform duration-300 text-gray-black dark:text-text-white"
           >
-          <Icon name={social.icon} size={20} class='text-gray-black dark:text-text-black' /> 
+          <Icon name={social.icon} size={20} class='text-gray-black dark:text-text-white' /> 
           {social.name}
         </a>
       ))}
