@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<header class="backdrop-blur-md fixed w-full z-30 top-0 left-0">
+<header class="backdrop-blur-md fixed w-full z-30 top-0 left-0" id="main-header">
   <nav class="container px-2 lg:max-w-[1114px] flex flex-wrap items-center justify-between mx-auto py-4 ">
     <a class="flex text-main-color gap-2 items-center self-center text-3xl font-black whitespace-nowrap" href="/">
       &lt;JC/&gt;
@@ -71,6 +71,7 @@ import { Icon } from 'astro-icon/components'
       </ul>
     </div>
   </nav>
+  <div id="menu-backdrop" class="absolute bg-black/30 rounded translate-x-[var(--left)] translate-y-[var(--top)] left-0 top-0 h-[var(--height)] w-[var(--width)] transition-all duration-500 ease-in-out opacity-0 -z-10"></div>
 </header>
 
 <script>
@@ -107,4 +108,28 @@ import { Icon } from 'astro-icon/components'
       menuNav.classList.toggle('hidden');
     });
   }
+</script>
+
+<script>
+  const $listItems = document.querySelectorAll('#main-header li')
+  const $menuBackDrop = document.querySelector('#menu-backdrop') as HTMLElement
+
+  $listItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect()
+
+      $menuBackDrop.style.setProperty("--left", `${left}px`)
+      $menuBackDrop.style.setProperty("--top", `${top}px`)
+      $menuBackDrop.style.setProperty("--width", `${width}px`)
+      $menuBackDrop.style.setProperty("--height", `${height}px`)
+
+      $menuBackDrop.style.opacity = "1"
+      $menuBackDrop.style.visibility = "visible"
+    })
+
+    item.addEventListener("mouseleave", () => {
+      $menuBackDrop.style.opacity = "0"
+      $menuBackDrop.style.visibility = "hidden"
+    })
+  })
 </script>
