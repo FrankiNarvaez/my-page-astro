@@ -68,12 +68,12 @@ import { Icon } from 'astro-icon/components'
   }
 
   // Lógica para el menú, ya existente
-  const menuButton = document.querySelector('button[title="Menu nav"]');
-  const menuNav = document.querySelector('#menu');
+  const $menuButton = document.querySelector('button[title="Menu nav"]');
+  const $menuNav = document.querySelector('#menu');
   
-  if (menuButton && menuNav) {
-    menuButton.addEventListener('click', () => {
-      menuNav.classList.toggle('hidden');
+  if ($menuButton && $menuNav) {
+    $menuButton.addEventListener('click', () => {
+      $menuNav.classList.toggle('hidden');
     });
   }
 </script>
