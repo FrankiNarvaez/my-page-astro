@@ -29,11 +29,11 @@ import { Icon } from 'astro-icon/components'
       </button>
     </div>
     <nav class="items-center justify-between w-full md:flex md:w-auto md:order-1 transition-all duration-500 hidden" id="menu">
-      <ul class="flex flex-col items-center font-medium [&>li]:px-3 [&>li]:py-1 md:flex-row md:mt-0 md:border-0 text-gray-black dark:text-white-color dark:font-normal">
-        <li><a href="/#Home">Home</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/#About">About me</a></li>
-        <li><a href="/#Contact">Contact</a></li>
+      <ul class="flex flex-col items-center font-bold text-lg [&>li]:px-4 [&>li]:py-2 md:flex-row md:mt-0 md:border-0 text-gray-black dark:text-white-color dark:font-normal">
+        <li class="hover:bg-main-color/10 rounded-xl transition-all duration-300 hover:text-main-color"><a href="/#Home">Home</a></li>
+        <li class="hover:bg-main-color/10 rounded-xl transition-all duration-300 hover:text-main-color"><a href="/projects">Projects</a></li>
+        <li class="hover:bg-main-color/10 rounded-xl transition-all duration-300 hover:text-main-color"><a href="/#About">About me</a></li>
+        <li class="hover:bg-main-color/10 rounded-xl transition-all duration-300 hover:text-main-color"><a href="/#Contact">Contact</a></li>
       </ul>
       <div class="flex justify-center [&>a]:px-4 [&>a]:py-2 md:hidden">
         <a href="https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/" target="_blank">
@@ -44,7 +44,6 @@ import { Icon } from 'astro-icon/components'
         </a>
       </div>
     </nav>
-    <div id="menu-backdrop" class="absolute bg-black/10 dark:bg-white/10 rounded translate-x-[var(--left)] translate-y-[var(--top)] left-0 top-0 h-[var(--height)] w-[var(--width)] transition-all duration-500 ease-in-out opacity-0 -z-10"></div>
   </section>
 </header>
 
@@ -76,28 +75,4 @@ import { Icon } from 'astro-icon/components'
       $menuNav.classList.toggle('hidden');
     });
   }
-</script>
-
-<script>
-  const $listItems = document.querySelectorAll('#main-header li')
-  const $menuBackDrop = document.querySelector('#menu-backdrop') as HTMLElement
-
-  $listItems.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      const { left, top, width, height } = item.getBoundingClientRect()
-
-      $menuBackDrop.style.setProperty("--left", `${left}px`)
-      $menuBackDrop.style.setProperty("--top", `${top}px`)
-      $menuBackDrop.style.setProperty("--width", `${width}px`)
-      $menuBackDrop.style.setProperty("--height", `${height}px`)
-
-      $menuBackDrop.style.opacity = "1"
-      $menuBackDrop.style.visibility = "visible"
-    })
-
-    item.addEventListener("mouseleave", () => {
-      $menuBackDrop.style.opacity = "0"
-      $menuBackDrop.style.visibility = "hidden"
-    })
-  })
 </script>
