@@ -182,7 +182,14 @@ const experiencesByYear: ExperiencesByYear = experiences.reduce<ExperiencesByYea
 </style>
 
 <script>
-  function toggleDetails(expId) {
+  // Window can have a toggleDetails method
+  declare global {
+    interface Window {
+      toggleDetails: (expId: string) => void;
+    }
+  }
+
+  function toggleDetails(expId: string) {
     const details = document.getElementById(expId);
     const chevron = document.getElementById(`chevron-${expId.split('-')[1]}`);
     
