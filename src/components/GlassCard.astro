@@ -7,7 +7,16 @@ const { className = "" } = Astro.props;
 ---
 
 <div
-  class={`p-6 rounded-xl bg-white/60 dark:bg-zinc-900/50 backdrop-blur-xl border border-white/80 dark:border-zinc-700 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 ${className}`}
+  class={`p-6 rounded-xl 
+          bg-white/60 dark:bg-zinc-900/50 
+          backdrop-blur-xl 
+          border border-white/80 dark:border-zinc-700 
+          shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] 
+          dark:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)]
+          hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.08)] 
+          dark:hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.45)]
+          transition-all duration-300 
+          ${className}`}
 >
   <slot />
 </div>

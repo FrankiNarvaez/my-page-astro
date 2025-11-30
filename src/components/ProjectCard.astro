@@ -14,26 +14,30 @@ interface Props {
 
 const { title, image, technologies, github, demo, description, type } = Astro.props;
 ---
-<div class="bg-white rounded-lg border-2 border-gray-200 p-5 font-mono shadow-sm hover:shadow-md transition-shadow">
-  <div class="text-[#657b83] text-sm">
+<div class="bg-white dark:bg-zinc-900 rounded-lg border-2 border-gray-200 dark:border-zinc-700 p-5 font-mono shadow-sm dark:shadow-[0_4px_18px_-6px_rgba(0,0,0,0.7)] hover:shadow-md dark:hover:shadow-[0_6px_24px_-8px_rgba(0,0,0,0.9)] transition-shadow">
+  <div class="text-[#657b83] dark:text-gray-300 text-sm">
     <p class="mb-2">
       <Rose class="inline-block mb-1" size={14} />
       <span class="text-[#268bd2]">➜</span>
       <span class="text-[#7AA89F]"> cat</span> README.md
     </p>
-    <Image src={image} alt={title} class="w-full h-auto rounded-md mb-4 border border-[#eee8d5] shadow-sm" />
-    <h3 class="text-gray-black text-lg font-bold mb-1 flex items-center">
+
+    <Image src={image} alt={title} class="w-full h-auto rounded-md mb-4 border border-[#eee8d5] dark:border-zinc-700 shadow-sm dark:shadow-[0_3px_14px_-6px_rgba(0,0,0,0.8)]" />
+
+    <h3 class="text-gray-black dark:text-gray-100 text-lg font-bold mb-1 flex items-center">
       <span class="hover:underline">{title}</span>
       {github && (<a href={github} target="_blank" class="inline-block ml-4 hover:scale-110"><Github size={16} /></a>)}
       {demo && (<a href={demo} target="_blank" class="inline-block ml-2 hover:scale-110"><ExternalLink size={16} /></a>)}
     </h3>
+
     <p class="mb-4 leading-relaxed text-xs">
       {description}
     </p>
+
     <div class="flex flex-wrap gap-2 mt-2">
       {technologies.map((tech) => (
         <span
-          class="bg-[#EEEEEE] text-[#586e75] px-1 rounded text-xs"
+          class="bg-[#EEEEEE] dark:bg-zinc-800 text-[#586e75] dark:text-gray-200 px-1 rounded text-xs"
         >
           {tech}
         </span>
