@@ -5,7 +5,7 @@ import { Image } from 'astro:assets'
 import MrCat from '../assets/mrcat.jpeg'
 ---
 
-<header class="backdrop-blur-md fixed w-full z-30 top-0 left-0" id="main-header">
+<header class="backdrop-blur-md fixed w-full m-auto left-0 right-0 z-30 transition-all duration-300" id="main-header">
   <section class="container px-2 lg:max-w-[1114px] flex flex-wrap items-center justify-between mx-auto py-4">
     <a class="flex text-gray-black dark:text-white-color/80 gap-2 items-center self-center text-xl font-black whitespace-nowrap hover:underline" href="/">
       <Image src={MrCat} alt="Logo" class="w-10 h-10 rounded-full object-cover" draggable="false"/>
@@ -84,4 +84,48 @@ import MrCat from '../assets/mrcat.jpeg'
       $menuNav.classList.toggle('hidden');
     });
   }
+
+  const header = document.querySelector('#main-header') as HTMLElement;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        header.classList.add('is-small');
+      } else {
+        header.classList.remove('is-small');
+      }
+    });
 </script>
+
+<style>
+#main-header.is-small {
+  padding-block: 0.25rem;
+
+  width: 90%;
+
+  top: 0.75rem;
+
+  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+@media (min-width: 1024px) {
+  #main-header.is-small {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1536px) {
+  #main-header.is-small {
+    width: 55%;
+  }
+}
+
+#main-header.is-small section {
+  padding-block: 0.25rem;
+}
+
+#main-header.is-small img {
+  width: 2rem;
+  height: 2rem;
+}
+</style>
