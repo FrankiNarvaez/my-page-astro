@@ -1,23 +1,27 @@
 ---
+import SectionTitle from '../components/SectionTitle.astro'
+import { Cat } from '@lucide/astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import cat from '../assets/cat.png'
+import me from '../assets/me.jpg'
 ---
 
-<section id='About' class='md:mt-10 flex justify-between mb-5 flex-col-reverse md:flex-row'>
-  <div class="md:max-w-md">
-    <h3 class='text-gray-black dark:text-text-white text-5xl font-bold mb-8'>About me</h3>
-    <p class='text-base pb-10 text-gray-black dark:text-text-white'>
-      I am Jhan Carlos, a 19-year-old <span class="text-main-color">fullstack developer</span> from Colombia, with a great passion for <span class="text-main-color">technology and software development</span>. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
-    </p>
-    <p class='text-base text-gray-black dark:text-text-white'>
-      My experience spans both <span class="text-orange-semi-black dark:text-orange-semi-white">frontend and backend development</span>, and I'm excited to explore innovative projects that allow me to apply my knowledge and acquire new skills. I'm committed to delivering <span class="text-orange-semi-black dark:text-orange-semi-white">creative and efficient solutions</span>, and I enjoy collaborating with other developers to <span class="text-orange-semi-black dark:text-orange-semi-white">achieve exceptional results</span>.
-    </p>
-  </div>
-  <div class="flex items-center justify-center">
-    <Image src={cat} alt='cat' />
+<section id='About' class='md:mt-10'>
+  <SectionTitle icon={Cat} title="About me" />
+  <div class='flex justify-between mb-5 flex-col-reverse md:flex-row'>
+    <div class="md:max-w-md">
+      <p class='text-base pb-10 text-gray-black dark:text-text-white'>
+        I am Jhan Carlos, a 19-year-old <span class="text-main-color">fullstack developer</span> from Colombia, with a great passion for <span class="text-main-color">technology and software development</span>. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
+      </p>
+      <p class='text-base text-gray-black dark:text-text-white'>
+        My experience spans both <span class="text-orange-semi-black dark:text-orange-semi-white">frontend and backend development</span>, and I'm excited to explore innovative projects that allow me to apply my knowledge and acquire new skills. I'm committed to delivering <span class="text-orange-semi-black dark:text-orange-semi-white">creative and efficient solutions</span>, and I enjoy collaborating with other developers to <span class="text-orange-semi-black dark:text-orange-semi-white">achieve exceptional results</span>.
+      </p>
+    </div>
+    <div class="flex items-center justify-center rounded-full overflow-hidden mb-10 md:mb-0 w-60 h-60">
+      <Image src={me} alt="Franki's photo" />
+    </div>
   </div>
 </section>
 <div class='flex justify-center mb-4'>
-  <a href="https://heyzine.com/flip-book/110b8e990d.html" download class='flex justify-center gap-3 bg-main-color text-white py-2 px-4 rounded-3xl hover:bg-main-color/70' target='_blank'>Curriculum <Icon name="cv" size={20}/></a>
+  <a href="https://heyzine.com/flip-book/110b8e990d.html" download class='inline-flex items-center w-36 mb-8 gap-2 px-4 py-2 rounded-lg bg-white/50 border border-white/60 text-gray-600 hover:bg-white hover:text-gray-900 transition-all' target='_blank'>Curriculum <Icon name="cv" size={20}/></a>
 </div>

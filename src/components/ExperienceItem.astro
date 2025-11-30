@@ -1,0 +1,68 @@
+---
+import GlassCard from './GlassCard.astro';
+import { Briefcase, ChevronDown } from '@lucide/astro';
+
+interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  summary?: string;
+  functions: string[];
+}
+
+interface Props {
+  job: Experience;
+}
+
+const { job } = Astro.props;
+---
+
+<GlassCard className="group p-0! overflow-hidden">
+  <details class="group overflow-hidden">
+    <summary
+      class="p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white/40 hover:bg-white/60 transition-colors list-none"
+    >
+      <div class="flex-1">
+        <h3 class="text-lg font-bold text-gray-800">
+          {job.role}
+        </h3>
+
+        <div class="text-gray-500 font-medium text-sm flex items-center gap-2">
+          <Briefcase size={14} />
+          {job.company}
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 md:text-right">
+        <div class="flex flex-col items-end">
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 border border-gray-200">
+            {job.period}
+          </span>
+        </div>
+        <div
+          class="text-gray-400 transition-transform duration-300 group-open:rotate-180"
+        >
+          <ChevronDown size={20} />
+        </div>
+      </div>
+    </summary>
+
+    <div
+      class="overflow-hidden transition-all duration-500 ease-in-out max-h-0 opacity-0 group-open:max-h-96 group-open:opacity-100"
+    >
+      <div class="p-6 pt-0 border-t border-gray-100/50 bg-white/20">
+        <p class="text-gray-600 mb-4 text-sm mt-4 italic">
+          {job.summary}
+        </p>
+        <ul class="space-y-2">
+          {job.functions.map((fn) => (
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 shrink-0" />
+              {fn}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </details>
+</GlassCard>

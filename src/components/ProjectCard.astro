@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+import { ExternalLink, Github, Star, Code2, Folder, Rose } from '@lucide/astro'
+
+interface Props {
+  image: any;
+	title: string;
+  description: string;
+  technologies: string[];
+  github?: string;
+  demo?: string;
+  type: string;
+}
+
+const { title, image, technologies, github, demo, description, type } = Astro.props;
+---
+<div class="bg-white rounded-lg border-2 border-gray-200 p-5 font-mono shadow-sm hover:shadow-md transition-shadow">
+  <div class="text-[#657b83] text-sm">
+    <p class="mb-2">
+      <Rose class="inline-block mb-1" size={14} />
+      <span class="text-[#268bd2]">➜</span>
+      <span class="text-[#7AA89F]"> cat</span> README.md
+    </p>
+    <Image src={image} alt={title} class="w-full h-auto rounded-md mb-4 border border-[#eee8d5] shadow-sm" />
+    <h3 class="text-gray-black text-lg font-bold mb-1 flex items-center">
+      <span class="hover:underline">{title}</span>
+      {github && (<a href={github} target="_blank" class="inline-block ml-4 hover:scale-110"><Github size={16} /></a>)}
+      {demo && (<a href={demo} target="_blank" class="inline-block ml-2 hover:scale-110"><ExternalLink size={16} /></a>)}
+    </h3>
+    <p class="mb-4 leading-relaxed text-xs">
+      {description}
+    </p>
+    <div class="flex flex-wrap gap-2 mt-2">
+      {technologies.map((tech) => (
+        <span
+          class="bg-[#EEEEEE] text-[#586e75] px-1 rounded text-xs"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>

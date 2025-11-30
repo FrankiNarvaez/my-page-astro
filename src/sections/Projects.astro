@@ -1,21 +1,23 @@
 ---
-import Project from "../components/Project.astro";
+import Project from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 
-import socialMedia from '../assets/preview/social-media.png'
+import { Folder, ArrowRight } from "@lucide/astro";
+
 import finance from '../assets/preview/finance.png'
 import eccomerceRails from '../assets/preview/eccomerce-rails.png'
 ---
 
-<h3 id='Projects' class='text-gray-black dark:text-text-white text-5xl font-bold mb-8 mt-4'>Projects</h3>
-<section>
+<section id="projects">
+  <SectionTitle icon={Folder} title="Projects" />
   <div class="flex flex-col md:flex-row justify-between gap-4">
     <Project
         title='Finance'
         image={finance}
         description='Manage your personal finances.'
         technologies={['Rails', 'PostgreSQL']}
-        githubUrl='https://github.com/FrankiNarvaez/Finance'
-        liveUrl='http://finance.jhancarlos.me'
+        github='https://github.com/FrankiNarvaez/Finance'
+        demo='http://finance.jhancarlos.me'
         type="FullStack"
         />
     <Project
@@ -23,20 +25,16 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={eccomerceRails}
         description='Eccomerce made with Ruby On Rails, where you can create an acount and up your products, and a litte more.'
         technologies={['Rails', 'PostgreSQL']}
-        githubUrl='https://github.com/FrankiNarvaez/E-commerce-Rails'
-        liveUrl=''
+        github='https://github.com/FrankiNarvaez/E-commerce-Rails'
         type="FullStack"
         />
   </div>
-  <Project
-      title='Social Media'
-      image={socialMedia}
-      description='Social media where you can upload posts, see posts, follow people, and more.'
-      technologies={['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL', 'AWS', 'TypeORM']}
-      githubUrl='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories'
-      liveUrl=''
-      type='FullStack'
-      rowReverse={true}
-  />
-  <a href="/projects" class="text-main-color font-bold mt-10 flex justify-center animate-pulse hover:underline hover:animate-none">More projects →</a>
+  <div class="mt-5 text-center">
+    <a
+      href="/projects"
+      class="inline-flex items-center w-44 mb-8 gap-2 px-4 py-2 rounded-lg bg-white/50 border border-white/60 text-gray-600 hover:bg-white hover:text-gray-900 transition-all"
+    >
+      See all projects <ArrowRight size={18} />
+    </a>
+  </div>
 </section>

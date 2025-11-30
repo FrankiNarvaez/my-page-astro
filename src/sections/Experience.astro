@@ -1,0 +1,62 @@
+---
+import ExperienceItem from '../components/ExperienceItem.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { Briefcase } from '@lucide/astro';
+
+interface Experience {
+  date: string;
+  role: string;
+  company: string;
+  period: string;
+  summary?: string;
+  functions: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    date: "09/2025",
+    role: "Developer Jr.",
+    company: "Qstrauss Consulting",
+    period: "Oct 2025 - Present",
+    functions: [
+      "Gestión de proyectos y tareas.",
+      "Automatización y orquestación.",
+      "Integraciones."
+    ],
+  },
+  {
+    date: "01/2025",
+    role: "Full-Stack Developer",
+    company: "Universidad Tecnología de Pereira",
+    period: "Oct 2024 - Oct 2025",
+    functions: [
+      "Analyzed and understood an arrhythmia detection model, defining its input/output requirements and performance metrics to facilitate its integration into the application.",
+      "Implemented the model in a Ruby on Rails application, creating services, APIs, and views that displayed cardiological results in real time, reducing clinical response time and improving the user experience.",
+      "Performed project migration from Rails 5.2.2 to Rails 8.0.2, updating gems and resolving breaking changes, which decreased code reading complexity.",
+      "Provided Level 2/3 support for a private platform.",
+      "Collaborated in the development and optimization of the software’s technical documentation, facilitating its implementation and maintenance.",
+      "Extensive functional and performance tests were performed to ensure system stability and efficiency.",
+      "Developed an automation script for the installation of dependencies and software deployment, facilitating the continuous integration process.",
+      "Developed and optimized various functions in Ruby for a private project, enhancing system performance and maintainability."
+    ],
+  },
+  {
+    date: "09/2023",
+    role: "Teaching Assistant ",
+    company: "Universidad Tecnológica de Pereira",
+    period: "Sep 2023 - Nov 2023",
+    functions: [
+      "Collaborated closely with my professor to guide students in learning and practical application of fundamental C language concepts."
+    ],
+  }
+];
+---
+
+<div class="mx-auto py-10 transition-colors" id="Experience">
+  <SectionTitle icon={Briefcase} title="Experiencia" />
+  <div class="space-y-6">
+    {experiences.map((exp) => (
+      <ExperienceItem job={exp} />
+    ))}
+  </div>
+</div>

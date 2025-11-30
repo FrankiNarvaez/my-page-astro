@@ -1,0 +1,18 @@
+---
+interface Props {
+  icon: any;
+  title: string;
+}
+
+const { icon: Icon, title } = Astro.props;
+---
+
+<div class="flex items-center gap-3 mb-8">
+  <div class="p-2.5 rounded-lg bg-gray-100/80 backdrop-blur-md border border-gray-200 text-gray-700 shadow-sm">
+    <Icon size={20} strokeWidth={1.5} />
+  </div>
+
+  <h2 class="text-2xl font-semibold text-gray-800 tracking-tight">
+    {title}
+  </h2>
+</div>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Project from '../components/Project.astro';
+import Project from '../components/ProjectCard.astro';
+
+import { ChevronLeft } from '@lucide/astro';
 
 import memoryGame from '../assets/preview/memory-game.png'
 import imdbPage from '../assets/preview/page-imdb.png'
@@ -10,8 +12,15 @@ import finance from '../assets/preview/finance.png'
 import eccomerceRails from '../assets/preview/eccomerce-rails.png'
 ---
 <Layout title="Jhan Carlos | Projects">
-  <main class="mx-[10%] lg:mx-[20%] 2xl:mx-[25%]">
-    <div class="mt-20 mb-7">
+  <main class="mt-24 mx-[10%] lg:mx-[20%] 2xl:mx-[25%]">
+    <a
+      href="/#projects"
+      class="w-44 mb-8 flex items-center gap-2 px-4 py-2 rounded-lg bg-white/50 border border-white/60 text-gray-600 hover:bg-white hover:text-gray-900 transition-all"
+    >
+      <ChevronLeft size={20} />
+      Go back
+    </a>
+    <div class="mb-7">
       <h1 class="text-gray-black dark:text-white text-3xl font-bold mb-7">Projects</h1>
       <p class="text-gray-black dark:text-white/70 text-base">Here you’ll find a collection of projects that <span class="text-main-color font-semibold">I’ve developed and collaborated on</span>. From web applications and innovative tools to team collaborations, each project reflects <span class="text-main-color">my passion for technology</span> and my dedication to creating <span class="text-main-color">useful and efficient solutions</span>. Discover more description each one and see how I contribute to <span class="text-main-color font-semibold">transforming ideas into reality!</span></p>
     </div>
@@ -21,8 +30,7 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={socialMedia}
         description='Social media where you can upload posts, see posts, follow people, and more.'
         technologies={['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL', 'AWS', 'TypeORM']}
-        githubUrl='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories'
-        liveUrl=''
+        github='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories'
         type="FullStack"
       />
       <Project
@@ -30,8 +38,7 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={virtualStore}
         description='A simple E-commerce, with basic function like see products, login, registe add to cart etc...'
         technologies={['React', 'TypeScript', 'Tailwind', 'Nestjs', 'TypeORM', 'PostgreSQL']}
-        githubUrl='https://github.com/FrankiNarvaez/frontend-virtual-store'
-        liveUrl=''
+        github='https://github.com/FrankiNarvaez/frontend-virtual-store'
         type="FullStack"
       />
       <Project
@@ -39,8 +46,8 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={memoryGame}
         description='A simple memory game made with HTML without JavaScript.'
         technologies={['HTML5', 'CSS3']}
-        githubUrl='https://github.com/FrankiNarvaez/memory-game'
-        liveUrl='https://memory-game-html5-css3.netlify.app/'
+        github='https://github.com/FrankiNarvaez/memory-game'
+        demo='https://memory-game-html5-css3.netlify.app/'
         type="FrontEnd"
       />
       <Project
@@ -48,8 +55,8 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={imdbPage}
         description='IMDB page to search for movies and series, and see their details.'
         technologies={['React', 'JavaScript']}
-        githubUrl='https://github.com/FrankiNarvaez/IMDB-page'
-        liveUrl='https://imdb-pag.netlify.app/'
+        github='https://github.com/FrankiNarvaez/IMDB-page'
+        demo='https://imdb-pag.netlify.app/'
         type="FrontEnd"
       />
       <Project
@@ -57,8 +64,8 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={finance}
         description='Manage your personal finances.'
         technologies={['Rails', 'PostgreSQL']}
-        githubUrl='https://github.com/FrankiNarvaez/Finance'
-        liveUrl='https://finance.jhancarlos.me'
+        github='https://github.com/FrankiNarvaez/Finance'
+        demo='https://finance.jhancarlos.me'
         type="FullStack"
       />
       <Project
@@ -66,8 +73,7 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
         image={eccomerceRails}
         description='Eccomerce made with Ruby On Rails, where you can create an acount and up your products, and a litte more.'
         technologies={['Rails', 'PostgreSQL']}
-        githubUrl='https://github.com/FrankiNarvaez/E-commerce-Rails'
-        liveUrl=''
+        github='https://github.com/FrankiNarvaez/E-commerce-Rails'
         type="FullStack"
       />
     </section>

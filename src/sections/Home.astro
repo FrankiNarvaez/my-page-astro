@@ -1,26 +1,31 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Github, Linkedin, Mail } from '@lucide/astro'
+
 const socialMedias = [
   {
     href: "https://www.linkedin.com/in/franki-jhan-carlos-narvaez-munoz-a04bb0319/",
-    icon: "linkedin",
+    icon: Linkedin,
     name: "LinkedIn"
   },
   {
     href: "https://github.com/FrankiNarvaez",
-    icon: "github",
+    icon: Github,
     name: "GitHub"
   },
   {
     href: "mailto:frannki03@gmail.com",
-    icon: "email",
+    icon: Mail,
     name: "frannki03@gmail.com"
   }
 ]
 ---
-<section id='Home' class='flex justify-center flex-col h-[100vh]'>
+<section id='Home' class='flex justify-center flex-col h-screen'>
   <div class='flex flex-col'>
-    <h1 class='text-gray-black dark:text-text-white text-5xl lg:text-7xl font-bold'>Hi! <span class='text-main-color '>I'm Jhan Carlos</span> </h1>
+    <div class="w-64 mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/40 border border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+      Not available for projects
+    </div>
+    <h1 class='text-gray-black dark:text-text-white text-5xl lg:text-7xl font-bold'>Hi! <span>I'm Jhan Carlos</span> </h1>
     <h2 class='text-gray-black/70 dark:text-white-color/60 text-lg lg:text-2xl font-semibold'>FULL-STACK DEVELOPER</h2>
     <p class="text-gray-black dark:text-text-white mt-10 text-base lg:text-lg max-w-sm lg:max-w-2xl"><span class="text-orange-semi-black dark:text-orange-semi-white/80">Computer science student and web developer</span>, specialized in creating <span class="text-main-color dark:text-main-color/80">robust web solutions.</span> Driven by a passion for technology, I'm dedicated to delivering <span class="text-main-color dark:text-main-color/80">creative, efficient, and impactful</span> solutions that transform <span class="text-orange-semi-black dark:text-orange-semi-white/80">ideas into reality</span>.</p>
     <div class="flex gap-4 mt-10 flex-wrap">
@@ -30,7 +35,7 @@ const socialMedias = [
           target="_blank"
           class="bg-gray-100 border border-gray-300 dark:bg-zinc-800 dark:border-zinc-600 rounded-2xl flex items-center gap-2 py-1 px-2 hover:scale-105 transition-transform duration-300 text-gray-black dark:text-text-white text-sm lg:text-base"
           >
-          <Icon name={social.icon} size={20} class='text-gray-black dark:text-text-white' /> 
+          <social.icon size={20} class='text-gray-black dark:text-text-white' />
           {social.name}
         </a>
       ))}

@@ -1,30 +1,89 @@
 ---
-import Skill from "../components/Skill.astro"
+import SectionTitle from "../components/SectionTitle.astro";
+import { CodeXml } from "@lucide/astro";
+import { Icon } from "astro-icon/components";
+
+interface Skill {
+  name: string;
+  icon: string;
+  color: string;
+}
+
+const skills: Skill[] = [
+  { name: "HTML5", icon: "html", color: "#E34F26" },
+  { name: "CSS3", icon: "css", color: "#6C409B" },
+  { name: "JavaScript", icon: "js", color: "#F7DF1E" },
+  { name: "ReactJs", icon: "react", color: "#61DAFB" },
+  { name: "Nextjs", icon: "next", color: "#000000" },
+  { name: "Tailwind", icon: "tailwind", color: "#38B2AC" },
+  { name: "Ruby On Rails", icon: "rails", color: "#CC0000" },
+  { name: "Nodejs", icon: "node", color: "#339933" },
+  { name: "Express", icon: "express", color: "#000000" },
+  { name: "TypeScript", icon: "ts", color: "#3178C6" },
+  { name: "Nestjs", icon: "nest", color: "#E0234E" },
+  { name: "MySQL", icon: "mysql", color: "#4479A1" },
+  { name: "PostgreSQL", icon: "postgres", color: "#336791" },
+  { name: "Linux", icon: "linux", color: "#FFCC00" },
+  { name: "Git", icon: "git", color: "#F05032" },
+  { name: "Github", icon: "github", color: "#181717" },
+  { name: "Docker", icon: "docker", color: "#2396ED" },
+  { name: "BashShell", icon: "bash", color: "#2F3A3E" },
+  { name: "Laravel", icon: "laravel", color: "#D62C21" },
+  { name: "PHP", icon: "php", color: "#7FA2E1" },
+  { name: "n8n", icon: "n8n", color: "#EA4B71" },
+  { name: ".NET", icon: "dotnet", color: "#512BD4" },
+  { name: "C#", icon: "csharp", color: "#A179DC" },
+  { name: "Bun", icon: "bun", color: "#FBF0DF" },
+];
 ---
 
-<h3 id='Skills' class='text-gray-black dark:text-text-white text-5xl font-bold mb-8 mt-6'>Skills</h3>
-<ul class="flex flex-wrap justify-center gap-6 mb-10">
-  <Skill skill='HTML5' color="#E34F26"/>
-  <Skill skill='CSS3' color="#6C409B"/>
-  <Skill skill='JavaScript' color="#F7DF1E"/>
-  <Skill skill='React' color="#61DAFB"/>
-  <Skill skill='Nextjs' color="#000000"/>
-  <Skill skill='Tailwind' color="#38B2AC"/>
-  <Skill skill='Rails' color="#CC0000"/>
-  <Skill skill='Nodejs' color="#339933"/>
-  <Skill skill='Express' color="#000000"/>
-  <Skill skill='TypeScript' color="#3178C6"/>
-  <Skill skill='Nestjs' color="#E0234E"/>
-  <Skill skill="MySQL" color="#4479A1"/>
-  <Skill skill='PostgreSQL' color="#336791"/>
-  <Skill skill='MongoDB' color="#4AA74B"/>
-  <Skill skill='Linux' color="#FFCC00"/>
-  <Skill skill='Git' color="#F05032"/>
-  <Skill skill='github' color="#181717"/>
-  <Skill skill='Docker' color="#2396ED"/>
-  <Skill skill='Vercel' color="#000000"/>
-  <Skill skill='BashShell' color="#2F3A3E"/>  
-  <Skill skill='Laravel' color="#D62C21"/>  
-  <Skill skill='PHP' color="#7FA2E1"/>  
-  <Skill skill='Vue' color="#3DAD7B"/>  
-</ul>
+<section id="skills">
+  <SectionTitle icon={CodeXml} title="Stack Tecnológico" />
+
+  <div class="flex flex-wrap justify-center gap-8 bg-transparent">
+    {skills.map((skill) => (
+      <div class="group relative flex flex-col items-center justify-center">
+        {/* Icono */}
+        <div
+          class="p-4 rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-md"
+          style={`
+            background-color: ${skill.color}30;
+            border: 1.4px solid ${skill.color};
+          `}
+        >
+          <Icon name={skill.icon} size={40} />
+        </div>
+
+
+        {/* Tooltip Bonito */}
+        <div
+          class='absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-20'
+        >
+          <div
+            class='bg-white px-3 py-1.5 rounded-lg border-2 text-sm font-semibold shadow-xl whitespace-nowrap text-gray-700'
+            style={`border-color: ${skill.color};`}
+          >
+            {skill.name}
+            {/* Flecha del tooltip */}
+            <div
+              class='tooltip-arrow bg-white border-b-2 border-r-2 mb-[1.75px]'
+              style={`border-color: ${skill.color};`}
+            ></div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .tooltip-arrow {
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    width: 10px;
+    height: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    border-radius: 2px;
+  }
+</style>
