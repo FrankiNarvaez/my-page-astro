@@ -2,17 +2,17 @@
 import { Icon } from 'astro-icon/components'
 
 interface Props {
-  technologie: string;
+  skill: string;
   color: string;
 }
 
-const { technologie, color } = Astro.props;
+const { skill, color } = Astro.props;
 ---
 
 <li 
   class="w-20 h-20 flex items-center justify-center rounded-3xl hover:border"
   style={`background-color: ${color}30; border-color: ${color}`}
-  title={technologie}
+  title={skill}
 >
-  <Icon name={technologie} size={40}/>
+  <Icon name={skill} size={40}/>
 </li>
