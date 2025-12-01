@@ -38,7 +38,7 @@ const skills: Skill[] = [
 ---
 
 <section id="skills">
-  <SectionTitle icon={CodeXml} title="Stack Tecnológico" />
+  <SectionTitle icon={CodeXml} title="Tech stack" />
 
   <div class="flex flex-wrap justify-center gap-8 bg-transparent">
     {skills.map((skill) => (
@@ -60,13 +60,13 @@ const skills: Skill[] = [
           class='absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-20'
         >
           <div
-            class='bg-white px-3 py-1.5 rounded-lg border-2 text-sm font-semibold shadow-xl whitespace-nowrap text-gray-700'
+            class='bg-white dark:bg-black px-3 py-1.5 rounded-lg border-2 text-sm font-semibold shadow-xl whitespace-nowrap text-gray-700 dark:text-gray-300'
             style={`border-color: ${skill.color};`}
           >
             {skill.name}
             {/* Flecha del tooltip */}
             <div
-              class='tooltip-arrow bg-white border-b-2 border-r-2 mb-[1.75px]'
+              class='tooltip-arrow bg-white dark:bg-black border-b-2 border-r-2 mb-[1.75px]'
               style={`border-color: ${skill.color};`}
             ></div>
           </div>
