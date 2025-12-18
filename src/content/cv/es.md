@@ -1,3 +1,7 @@
+---
+title: CV - Español
+---
+
 # Franki Jhan Carlos Narvaez Muñoz
 
 **Teléfono:** +57 322 535 0892  

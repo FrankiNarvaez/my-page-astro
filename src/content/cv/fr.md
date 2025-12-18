@@ -1,9 +1,13 @@
+---
+title: CV - Français
+---
+
 # Franki Jhan Carlos Narvaez Muñoz
 
 **Téléphone :** +57 322 535 0892  
-**Email :** frannki03@gmail.com  
-**Site web :** https://jhancarlos.dev  
-**GitHub :** https://github.com/FrankiNarvaez
+**Email :** <frannki03@gmail.com>  
+**Site web :** <https://jhancarlos.dev>  
+**GitHub :** <https://github.com/FrankiNarvaez>
 
 ---
 
@@ -48,7 +52,7 @@ _Septembre 2023 – Novembre 2023_
 
 **Université Technologique de Pereira** — Pereira, Colombie  
 _Février 2022 – Actuel_  
-https://www.utp.edu.co
+<https://www.utp.edu.co>
 
 ---
 
@@ -56,7 +60,7 @@ https://www.utp.edu.co
 
 **EliteStack BootCamp** — Pereira, Colombie  
 _Juin 2024 – Juillet 2024_  
-https://elitestack-bootcamp.vercel.app
+<https://elitestack-bootcamp.vercel.app>
 
 ---
 
@@ -64,7 +68,7 @@ https://elitestack-bootcamp.vercel.app
 
 **Université Catholique de Pereira** — Pereira, Colombie  
 _Février 2023 – Mars 2023_  
-https://www.ucp.edu.co
+<https://www.ucp.edu.co>
 
 ---
 
@@ -72,7 +76,7 @@ https://www.ucp.edu.co
 
 **Université Technologique de Pereira** — Pereira, Colombie  
 _Avril 2023 – Mai 2023_  
-https://www.utp.edu.co
+<https://www.utp.edu.co>
 
 ---
 

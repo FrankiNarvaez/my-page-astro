@@ -1,19 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 import { ChevronLeft } from '@lucide/astro';
 
+type Lang = 'es' | 'en' | 'fr';
 export async function getStaticPaths() {
-  const langs = ['es', 'en', 'fr'];
+  const langs: Lang[] = ['es', 'en', 'fr'];
   return langs.map((lang) => ({
     params: { lang },
   }));
 }
 
-const { lang } = Astro.params;
+const { lang } = Astro.params as { lang: Lang };
 
 const entries = await getCollection('cv');
-const entry = entries.find((e: any) => e.slug === lang);
+const entry = entries.find((e) => e.slug === lang);
 
 if (!entry) {
   throw new Error(`Currículum no encontrado para idioma: ${lang}`);

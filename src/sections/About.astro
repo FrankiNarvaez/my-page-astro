@@ -1,7 +1,6 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro'
 import { Cat } from '@lucide/astro'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import me from '../assets/me.jpg'
 ---
@@ -67,18 +66,23 @@ import me from '../assets/me.jpg'
 </div>
 
 <script>
-  // Alterna visibilidad del menú
-  const btn = document.getElementById("cvDropdownButton");
-  const menu = document.getElementById("cvDropdownMenu");
+  const btn = document.getElementById("cvDropdownButton") as HTMLButtonElement | null;
+  const menu = document.getElementById("cvDropdownMenu") as HTMLDivElement | null;
 
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
 
-  // Cerrar el menú clic fuera
-  document.addEventListener("click", (e) => {
-    if (!btn.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.add("hidden");
-    }
-  });
+    document.addEventListener("click", (event) => {
+      if (
+        btn &&
+        menu &&
+        !btn.contains(event.target as Node) &&
+        !menu.contains(event.target as Node)
+      ) {
+        menu.classList.add("hidden");
+      }
+    });
+  }
 </script>
