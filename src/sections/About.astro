@@ -22,19 +22,63 @@ import me from '../assets/me.jpg'
     </div>
   </div>
 </section>
-<div class='flex justify-center mb-4'>
-  <a
-    href="https://heyzine.com/flip-book/110b8e990d.html"
-    download
-    class='inline-flex items-center w-36 mb-8 gap-2 px-4 py-2 rounded-lg 
-           bg-white/50 dark:bg-zinc-800/50 
-           border border-white/60 dark:border-zinc-700 
-           text-gray-600 dark:text-gray-200 
-           hover:bg-white dark:hover:bg-zinc-800 
-           hover:text-gray-900 dark:hover:text-white 
-           transition-all'
-    target='_blank'
+
+<div class="relative inline-block text-left mb-10">
+  <!-- Botón principal -->
+  <button
+    id="cvDropdownButton"
+    class="w-44 flex items-center gap-2 px-4 py-2 rounded-lg
+           bg-white/50 dark:bg-zinc-800/50
+           border border-white/60 dark:border-zinc-700
+           text-gray-600 dark:text-gray-200
+           hover:bg-white dark:hover:bg-zinc-800
+           hover:text-gray-900 dark:hover:text-white
+           transition-all"
   >
-    Curriculum <Icon name="cv" size={20}/>
-  </a>
+    Curriculum ▼
+  </button>
+
+  <!-- Menú desplegable -->
+  <div
+    id="cvDropdownMenu"
+    class="hidden absolute right-0 mt-2 w-44 bg-white/80 dark:bg-zinc-800/80
+           border border-white/60 dark:border-zinc-700 rounded-lg shadow-md backdrop-blur
+           text-gray-600 dark:text-gray-200 z-30"
+  >
+    <a
+      href="/cv/es"
+      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
+    >
+      Español
+    </a>
+    <a
+      href="/cv/en"
+      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
+    >
+      English
+    </a>
+    <a
+      href="/cv/fr"
+      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
+    >
+      Français
+    </a>
+  </div>
 </div>
+
+<script>
+  // Alterna visibilidad del menú
+  const btn = document.getElementById("cvDropdownButton");
+  const menu = document.getElementById("cvDropdownMenu");
+
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+
+  // Cerrar el menú clic fuera
+  document.addEventListener("click", (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
