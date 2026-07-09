@@ -15,3 +15,7 @@
   --color-orange-semi-white: #750851;
   --color-border-color: #bababa;
 }
+
+html {
+  scroll-behavior: smooth;
+}

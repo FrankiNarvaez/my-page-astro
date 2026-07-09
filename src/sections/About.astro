@@ -1,24 +1,26 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro'
 import { Cat } from '@lucide/astro'
-import { Image } from 'astro:assets'
-import me from '../assets/me.jpg'
+
+// Update the date below with your actual birthdate — age updates automatically every year
+const birthDate = new Date('2005-03-01');
+const today = new Date();
+let age = today.getFullYear() - birthDate.getFullYear();
+if (
+  today.getMonth() < birthDate.getMonth() ||
+  (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+) age--;
 ---
 
-<section id='About' class='md:mt-10'>
+<section id='About' class='md:mt-10 scroll-mt-24'>
   <SectionTitle icon={Cat} title="About me" />
-  <div class='flex justify-between mb-5 flex-col-reverse md:flex-row'>
-    <div class="md:max-w-md">
-      <p class='text-base pb-10 text-gray-black dark:text-text-white'>
-        I am Jhan Carlos, a 19-year-old <span class="text-main-color">fullstack developer</span> from Colombia, with a great passion for <span class="text-main-color">technology and software development</span>. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
-      </p>
-      <p class='text-base text-gray-black dark:text-text-white'>
-        My experience spans both <span class="text-orange-semi-black dark:text-orange-semi-white">frontend and backend development</span>, and I'm excited to explore innovative projects that allow me to apply my knowledge and acquire new skills. I'm committed to delivering <span class="text-orange-semi-black dark:text-orange-semi-white">creative and efficient solutions</span>, and I enjoy collaborating with other developers to <span class="text-orange-semi-black dark:text-orange-semi-white">achieve exceptional results</span>.
-      </p>
-    </div>
-    <div class="flex items-center justify-center rounded-full overflow-hidden mb-10 md:mb-0 w-60 h-60">
-      <Image src={me} alt="Franki's photo" />
-    </div>
+  <div class='flex flex-col gap-6 mb-5'>
+    <p class='text-base text-gray-black/80 dark:text-text-white leading-relaxed max-w-2xl'>
+      I am Jhan Carlos, a <span class="text-main-color font-medium">{age}-year-old fullstack developer</span> from Colombia, with a great passion for technology and software development. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
+    </p>
+    <p class='text-base text-gray-black/80 dark:text-text-white leading-relaxed max-w-2xl'>
+      My experience spans both <span class="text-main-color font-medium">frontend and backend development</span>. I am committed to delivering creative and efficient solutions, and I enjoy collaborating with other developers to achieve exceptional results.
+    </p>
   </div>
 </section>
 

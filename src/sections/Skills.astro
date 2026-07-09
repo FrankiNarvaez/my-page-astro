@@ -37,10 +37,10 @@ const skills: Skill[] = [
 ];
 ---
 
-<section id="skills">
+<section id="skills" class="scroll-mt-24">
   <SectionTitle icon={CodeXml} title="Tech stack" />
 
-  <div class="flex flex-wrap justify-center gap-8 bg-transparent">
+  <div class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-6 bg-transparent justify-items-center">
     {skills.map((skill) => (
       <div class="group relative flex flex-col items-center justify-center">
         {/* Icono */}
