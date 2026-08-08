@@ -1,8 +1,8 @@
 ---
 import SectionTitle from '../components/SectionTitle.astro'
-import { Cat } from '@lucide/astro'
+import { Cat, ChevronDown } from '@lucide/astro'
 
-// Update the date below with your actual birthdate — age updates automatically every year
+// Update the date below with your actual birthdate, age updates automatically every year
 const birthDate = new Date('2005-03-01');
 const today = new Date();
 let age = today.getFullYear() - birthDate.getFullYear();
@@ -10,80 +10,79 @@ if (
   today.getMonth() < birthDate.getMonth() ||
   (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
 ) age--;
+
+const resumes = [
+  { href: '/cv/es', label: 'Español' },
+  { href: '/cv/en', label: 'English' },
+  { href: '/cv/fr', label: 'Français' },
+];
 ---
 
-<section id='About' class='md:mt-10 scroll-mt-24'>
+<section id='About' class='scroll-mt-24 py-10'>
   <SectionTitle icon={Cat} title="About me" />
-  <div class='flex flex-col gap-6 mb-5'>
-    <p class='text-base text-gray-black/80 dark:text-text-white leading-relaxed max-w-2xl'>
-      I am Jhan Carlos, a <span class="text-main-color font-medium">{age}-year-old fullstack developer</span> from Colombia, with a great passion for technology and software development. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
+
+  <div class='flex max-w-2xl flex-col gap-5'>
+    <p class='text-base leading-relaxed text-ink-muted'>
+      I am Jhan Carlos, a <span class="font-medium text-accent">{age}-year-old fullstack developer</span> from Colombia, with a great passion for technology and software development. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
     </p>
-    <p class='text-base text-gray-black/80 dark:text-text-white leading-relaxed max-w-2xl'>
-      My experience spans both <span class="text-main-color font-medium">frontend and backend development</span>. I am committed to delivering creative and efficient solutions, and I enjoy collaborating with other developers to achieve exceptional results.
+    <p class='text-base leading-relaxed text-ink-muted'>
+      My experience spans both frontend and backend development. I am committed to delivering creative and efficient solutions, and I enjoy collaborating with other developers to achieve exceptional results.
     </p>
+  </div>
+
+  <div class="relative mt-8 inline-block text-left">
+    <button
+      type="button"
+      id="cvDropdownButton"
+      class="inline-flex w-48 items-center justify-between gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-controls="cvDropdownMenu"
+    >
+      Resume
+      <ChevronDown size={16} class="cv-chevron transition-transform duration-300" />
+    </button>
+
+    <div
+      id="cvDropdownMenu"
+      class="absolute left-0 z-20 mt-2 hidden w-48 overflow-hidden rounded-lg border border-line bg-surface-raised p-1 shadow-lg backdrop-blur-xl"
+    >
+      {resumes.map((resume) => (
+        <a
+          href={resume.href}
+          class="block rounded-md px-3 py-2 text-sm text-ink-muted transition-colors hover:bg-accent-wash hover:text-accent"
+        >
+          {resume.label}
+        </a>
+      ))}
+    </div>
   </div>
 </section>
 
-<div class="relative inline-block text-left mb-10">
-  <!-- Botón principal -->
-  <button
-    id="cvDropdownButton"
-    class="w-44 flex items-center gap-2 px-4 py-2 rounded-lg
-           bg-white/50 dark:bg-zinc-800/50
-           border border-white/60 dark:border-zinc-700
-           text-gray-600 dark:text-gray-200
-           hover:bg-white dark:hover:bg-zinc-800
-           hover:text-gray-900 dark:hover:text-white
-           transition-all"
-  >
-    Curriculum ▼
-  </button>
-
-  <!-- Menú desplegable -->
-  <div
-    id="cvDropdownMenu"
-    class="hidden absolute right-0 mt-2 w-44 bg-white/80 dark:bg-zinc-800/80
-           border border-white/60 dark:border-zinc-700 rounded-lg shadow-md backdrop-blur
-           text-gray-600 dark:text-gray-200 z-30"
-  >
-    <a
-      href="/cv/es"
-      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
-    >
-      Español
-    </a>
-    <a
-      href="/cv/en"
-      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
-    >
-      English
-    </a>
-    <a
-      href="/cv/fr"
-      class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-zinc-700 transition-all rounded-md"
-    >
-      Français
-    </a>
-  </div>
-</div>
-
 <script>
-  const btn = document.getElementById("cvDropdownButton") as HTMLButtonElement | null;
-  const menu = document.getElementById("cvDropdownMenu") as HTMLDivElement | null;
+  const btn = document.getElementById("cvDropdownButton");
+  const menu = document.getElementById("cvDropdownMenu");
 
   if (btn && menu) {
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle("hidden", !open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.querySelector(".cv-chevron")?.classList.toggle("rotate-180", open);
+    };
+
     btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
+      setOpen(menu.classList.contains("hidden"));
     });
 
     document.addEventListener("click", (event) => {
-      if (
-        btn &&
-        menu &&
-        !btn.contains(event.target as Node) &&
-        !menu.contains(event.target as Node)
-      ) {
-        menu.classList.add("hidden");
+      const target = event.target as Node;
+      if (!btn.contains(target) && !menu.contains(target)) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !menu.classList.contains("hidden")) {
+        setOpen(false);
+        btn.focus();
       }
     });
   }

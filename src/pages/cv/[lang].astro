@@ -17,31 +17,32 @@ const entries = await getCollection('cv');
 const entry = entries.find((e) => e.slug === lang);
 
 if (!entry) {
-  throw new Error(`Currículum no encontrado para idioma: ${lang}`);
+  throw new Error(`Resume not found for language: ${lang}`);
 }
 
 const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <main class="pt-24 mx-[10%] lg:mx-[20%] 2xl:mx-[25%]">
+  <main class="container-page pt-28 pb-16">
     <a
       href="/#About"
-      class="w-44 mb-8 flex items-center gap-2 px-4 py-2 rounded-lg 
-            bg-white/50 dark:bg-zinc-800/50 
-            border border-white/60 dark:border-zinc-700 
-            text-gray-600 dark:text-gray-200 
-            hover:bg-white dark:hover:bg-zinc-800 
-            hover:text-gray-900 dark:hover:text-white 
-            transition-all"
+      class="group inline-flex items-center gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
     >
-      <ChevronLeft size={20} />
+      <ChevronLeft size={16} class="transition-transform duration-200 group-hover:-translate-x-0.5" />
       Go back
     </a>
-    <div class="prose prose-lg prose-slate dark:prose-invert
-         prose-headings:font-semibold prose-a:text-blue-600 hover:prose-a:text-blue-800
-         prose-img:rounded-lg mx-auto max-w-none">
+
+    <article
+      class="prose mt-8 max-w-none
+             prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-[var(--ink)]
+             prose-p:text-[var(--ink-muted)] prose-li:text-[var(--ink-muted)]
+             prose-strong:text-[var(--ink)]
+             prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline
+             prose-hr:border-[var(--line)]
+             prose-img:rounded-lg"
+    >
       <Content />
-    </div>
+    </article>
   </main>
 </Layout>

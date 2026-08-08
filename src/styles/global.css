@@ -3,19 +3,114 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  --color-main-color: #750851;
-  --color-white-color: #f8fcfb;
-  --color-text-white: #f8f7ff95;
-  --color-gray-color: #9f9f9f;
-  --color-black-color: #1e201e;
-  --color-gray-project: #d4d3d3;
-  --color-gray-black: #334155;
-  --color-orange-semi-black: #750851;
-  --color-orange-semi-white: #750851;
-  --color-border-color: #bababa;
+/* Runtime tokens. Swapped by the `.dark` class so every utility below
+   resolves to the right value without duplicating `dark:` variants. */
+:root {
+  color-scheme: light;
+
+  /* Elevation ramp. Pure white against the grey page read as a hard cut,
+     so raised surfaces sit one gentle step above the background instead. */
+  --surface: #edeef5;
+  --surface-raised: #f5f6fa;
+  --surface-sunken: #e5e7f0;
+  --line: #dadce8;
+  --line-strong: #c1c5d6;
+
+  --ink: #1e2130;
+  --ink-muted: #565b71;
+  --ink-subtle: #757a8f;
+
+  --accent: #750851;
+  --accent-contrast: #fbf9fb;
+  --accent-wash: rgb(117 8 81 / 0.07);
 }
 
-html {
-  scroll-behavior: smooth;
+.dark {
+  color-scheme: dark;
+
+  --surface: #0c0d13;
+  --surface-raised: #16181f;
+  --surface-sunken: #101219;
+  --line: #262a36;
+  --line-strong: #363b4a;
+
+  --ink: #e8e9f0;
+  --ink-muted: #a2a7ba;
+  --ink-subtle: #838899;
+
+  /* Same hue as the light accent, lifted to 6.1:1 against --surface.
+     #750851 sits at 1.6:1 on the dark background and is unreadable. */
+  --accent: #d96ba8;
+  --accent-contrast: #1a0512;
+  --accent-wash: rgb(217 107 168 / 0.12);
+}
+
+@theme inline {
+  --font-sans: "Onest", ui-sans-serif, system-ui, sans-serif;
+
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-accent-wash: var(--accent-wash);
+}
+
+/* Single source of truth for horizontal rhythm. The header and the page
+   content used different containers, so the logo never lined up with the H1. */
+@utility container-page {
+  width: 100%;
+  max-width: 68rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-contrast);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

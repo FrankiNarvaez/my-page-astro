@@ -1,9 +1,7 @@
 ---
-import { Image } from 'astro:assets'
-import { ExternalLink, Github, Star, Code2, Folder, Rose } from '@lucide/astro'
+import { ExternalLink, Github, Lock } from '@lucide/astro'
 
 interface Props {
-  image: any;
 	title: string;
   description: string;
   technologies: string[];
@@ -12,36 +10,55 @@ interface Props {
   type: string;
 }
 
-const { title, image, technologies, github, demo, description, type } = Astro.props;
+const { title, technologies, github, demo, description, type } = Astro.props;
 ---
-<div class="bg-white dark:bg-zinc-900 rounded-lg border-2 border-gray-200 dark:border-zinc-700 p-5 font-mono shadow-sm dark:shadow-[0_4px_18px_-6px_rgba(0,0,0,0.7)] hover:shadow-md dark:hover:shadow-[0_6px_24px_-8px_rgba(0,0,0,0.9)] transition-shadow">
-  <div class="text-[#657b83] dark:text-gray-300 text-sm">
-    <p class="mb-2">
-      <Rose class="inline-block mb-1" size={14} />
-      <span class="text-[#268bd2]">➜</span>
-      <span class="text-[#7AA89F]"> cat</span> README.md
-    </p>
 
-    <Image src={image} alt={title} class="w-full h-auto rounded-md mb-4 border border-[#eee8d5] dark:border-zinc-700 shadow-sm dark:shadow-[0_3px_14px_-6px_rgba(0,0,0,0.8)]" />
-
-    <h3 class="text-gray-black dark:text-gray-100 text-lg font-bold mb-1 flex items-center">
-      <span class="hover:underline">{title}</span>
-      {github && (<a href={github} target="_blank" class="inline-block ml-4 hover:scale-110"><Github size={16} /></a>)}
-      {demo && (<a href={demo} target="_blank" class="inline-block ml-2 hover:scale-110"><ExternalLink size={16} /></a>)}
-    </h3>
-
-    <p class="mb-4 leading-relaxed text-xs">
-      {description}
-    </p>
-
-    <div class="flex flex-wrap gap-2 mt-2">
-      {technologies.map((tech) => (
-        <span
-          class="bg-[#EEEEEE] dark:bg-zinc-800 text-[#586e75] dark:text-gray-200 px-1 rounded text-xs"
-        >
-          {tech}
-        </span>
-      ))}
-    </div>
+<article class="flex h-full flex-col rounded-xl border-[0.5px] border-line bg-surface-raised p-5 transition-colors duration-200 hover:border-line-strong">
+  <div class="flex items-start justify-between gap-2">
+    <h3 class="text-[15px] leading-snug font-medium text-ink">{title}</h3>
+    <span class="shrink-0 pt-0.5 font-mono text-[11px] text-ink-subtle">{type}</span>
   </div>
-</div>
+
+  <p class="mt-2 mb-3.5 flex-1 text-[13px] leading-relaxed text-ink-muted">
+    {description}
+  </p>
+
+  <ul class="mb-4 flex flex-wrap gap-1.5">
+    {technologies.map((tech) => (
+      <li class="rounded border-[0.5px] border-line px-2 py-[3px] font-mono text-[11px] text-ink-muted">
+        {tech}
+      </li>
+    ))}
+  </ul>
+
+  <div class="flex flex-wrap gap-4 border-t-[0.5px] border-line pt-3">
+    {github ? (
+      <a
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs text-ink-muted transition-colors hover:text-accent"
+      >
+        <Github size={14} class="shrink-0" />
+        Repository
+      </a>
+    ) : (
+      <span class="inline-flex items-center gap-1.5 text-xs text-ink-subtle">
+        <Lock size={14} class="shrink-0" />
+        Private repo
+      </span>
+    )}
+
+    {demo && (
+      <a
+        href={demo}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs text-ink-muted transition-colors hover:text-accent"
+      >
+        <ExternalLink size={14} class="shrink-0" />
+        Live site
+      </a>
+    )}
+  </div>
+</article>

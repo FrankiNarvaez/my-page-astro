@@ -3,37 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/ProjectCard.astro';
 
 import { ChevronLeft } from '@lucide/astro';
-
-import memoryGame from '../assets/preview/memory-game.png'
-import imdbPage from '../assets/preview/page-imdb.png'
-import socialMedia from '../assets/preview/social-media.png'
-import virtualStore from '../assets/preview/virtual-store.png'
-import finance from '../assets/preview/finance.png'
-import eccomerceRails from '../assets/preview/eccomerce-rails.png'
 ---
-<Layout title="Jhan Carlos | Projects">
-  <main class="pt-24 mx-[10%] lg:mx-[20%] 2xl:mx-[25%]">
+<Layout
+  title="Jhan Carlos | Projects"
+  description="Web applications and tools built by Jhan Carlos Narvaez, from Rails and Nest APIs to React and Next.js frontends."
+>
+  <main class="container-page pt-28 pb-16">
     <a
       href="/#projects"
-      class="w-44 mb-8 flex items-center gap-2 px-4 py-2 rounded-lg 
-            bg-white/50 dark:bg-zinc-800/50 
-            border border-white/60 dark:border-zinc-700 
-            text-gray-600 dark:text-gray-200 
-            hover:bg-white dark:hover:bg-zinc-800 
-            hover:text-gray-900 dark:hover:text-white 
-            transition-all"
+      class="group inline-flex items-center gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
     >
-      <ChevronLeft size={20} />
+      <ChevronLeft size={16} class="transition-transform duration-200 group-hover:-translate-x-0.5" />
       Go back
     </a>
-    <div class="mb-7">
-      <h1 class="text-gray-black dark:text-white text-3xl font-bold mb-7">Projects</h1>
-      <p class="text-gray-black dark:text-white/70 text-base">Here you’ll find a collection of projects that <span class="text-main-color font-semibold">I’ve developed and collaborated on</span>. From web applications and innovative tools to team collaborations, each project reflects <span class="text-main-color">my passion for technology</span> and my dedication to creating <span class="text-main-color">useful and efficient solutions</span>. Discover more description each one and see how I contribute to <span class="text-main-color font-semibold">transforming ideas into reality!</span></p>
+
+    <div class="mt-8 mb-10 max-w-2xl">
+      <h1 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">Projects</h1>
+      <p class="mt-4 text-base leading-relaxed text-ink-muted">
+        A collection of projects I have <span class="font-medium text-accent">developed and collaborated on</span>, from web applications and internal tools to team builds. Take a closer look at each one and see how I turn ideas into working software.
+      </p>
     </div>
-    <section class="grid grid-cols-1 md:grid-cols-2 mb-10 gap-4">
+
+    <section class="grid grid-cols-[repeat(auto-fit,minmax(17.5rem,1fr))] gap-4">
       <Project
         title='Social Media'
-        image={socialMedia}
         description='Social media where you can upload posts, see posts, follow people, and more.'
         technologies={['Nextjs', 'Tailwind', 'Nestjs', 'TypeScript', 'PostgreSQL', 'AWS', 'TypeORM']}
         github='https://github.com/orgs/FullStack-Elite-Bootcamp-IV/repositories'
@@ -41,7 +34,6 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
       />
       <Project
         title='Virtual Store'
-        image={virtualStore}
         description='A simple E-commerce with core features: browse products, login, register, and add to cart.'
         technologies={['React', 'TypeScript', 'Tailwind', 'Nestjs', 'TypeORM', 'PostgreSQL']}
         github='https://github.com/FrankiNarvaez/frontend-virtual-store'
@@ -49,7 +41,6 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
       />
       <Project
         title='Memory Game'
-        image={memoryGame}
         description='A simple memory game made with HTML without JavaScript.'
         technologies={['HTML5', 'CSS3']}
         github='https://github.com/FrankiNarvaez/memory-game'
@@ -58,7 +49,6 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
       />
       <Project
         title='IMDb Page'
-        image={imdbPage}
         description='IMDB page to search for movies and series, and see their details.'
         technologies={['React', 'JavaScript']}
         github='https://github.com/FrankiNarvaez/IMDB-page'
@@ -67,7 +57,6 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
       />
       <Project
         title='Finance'
-        image={finance}
         description='Manage your personal finances.'
         technologies={['Rails', 'PostgreSQL']}
         github='https://github.com/FrankiNarvaez/Finance'
@@ -76,8 +65,7 @@ import eccomerceRails from '../assets/preview/eccomerce-rails.png'
       />
       <Project
         title='Eccomerce'
-        image={eccomerceRails}
-        description='E-commerce built with Ruby On Rails - create an account, list your products, and more.'
+        description='E-commerce built with Ruby On Rails. Create an account, list your products, and more.'
         technologies={['Rails', 'PostgreSQL']}
         github='https://github.com/FrankiNarvaez/E-commerce-Rails'
         type="FullStack"

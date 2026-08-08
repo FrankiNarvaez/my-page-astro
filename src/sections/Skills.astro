@@ -37,53 +37,38 @@ const skills: Skill[] = [
 ];
 ---
 
-<section id="skills" class="scroll-mt-24">
+<section id="skills" class="scroll-mt-24 py-10">
   <SectionTitle icon={CodeXml} title="Tech stack" />
 
-  <div class="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-8 gap-6 bg-transparent justify-items-center">
+  <ul class="grid grid-cols-4 justify-items-center gap-3 sm:grid-cols-6 md:grid-cols-8">
     {skills.map((skill) => (
-      <div class="group relative flex flex-col items-center justify-center">
-        {/* Icono */}
+      <li class="skill-tile group relative" style={`--skill: ${skill.color};`}>
         <div
-          class="p-4 rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-md"
-          style={`
-            background-color: ${skill.color}30;
-            border: 1.4px solid ${skill.color};
-          `}
+          class="flex h-16 w-16 items-center justify-center rounded-2xl border border-line bg-surface-raised transition-all duration-300 group-hover:-translate-y-1 md:h-[4.5rem] md:w-[4.5rem]"
         >
-          <Icon name={skill.icon} size={40} />
+          <Icon name={skill.icon} size={32} />
         </div>
 
-
-        {/* Tooltip Bonito */}
         <div
-          class='absolute bottom-full mb-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 pointer-events-none z-20'
+          class="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 translate-y-1 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
         >
-          <div
-            class='bg-white dark:bg-black px-3 py-1.5 rounded-lg border-2 text-sm font-semibold shadow-xl whitespace-nowrap text-gray-700 dark:text-gray-300'
-            style={`border-color: ${skill.color};`}
+          <span
+            class="block rounded-md bg-ink px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-surface"
           >
             {skill.name}
-            {/* Flecha del tooltip */}
-            <div
-              class='tooltip-arrow bg-white dark:bg-black border-b-2 border-r-2 mb-[1.75px]'
-              style={`border-color: ${skill.color};`}
-            ></div>
-          </div>
+          </span>
         </div>
-      </div>
+      </li>
     ))}
-  </div>
+  </ul>
 </section>
 
 <style>
-  .tooltip-arrow {
-    position: absolute;
-    left: 50%;
-    bottom: -6px;
-    width: 10px;
-    height: 10px;
-    transform: translateX(-50%) rotate(45deg);
-    border-radius: 2px;
+  /* Tint by brand color on hover only. Applying it as a static border broke
+     for near-black (#000000) and near-white (#FBF0DF) logos, which vanished
+     against one of the two themes. color-mix keeps every value legible. */
+  .skill-tile:hover > div:first-child {
+    border-color: color-mix(in srgb, var(--skill) 60%, var(--line));
+    background-color: color-mix(in srgb, var(--skill) 12%, var(--surface-raised));
   }
 </style>

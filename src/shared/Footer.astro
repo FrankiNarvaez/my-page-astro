@@ -1,12 +1,15 @@
-<footer id="contact" class="mx-[10%] lg:mx-[20%] 2xl:mx-[25%] mt-10 pb-10 text-sm">
-  <hr class="border-t border-gray-300 dark:border-zinc-700 my-5">
-  <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-gray-500 dark:text-gray-400"> 
-    <div class="font-medium text-gray-600 dark:text-gray-200">
-      © 2026 Jhan Carlos
+---
+const year = new Date().getFullYear();
+---
+
+<footer id="contact" class="container-page pb-10 text-sm">
+  <div class="flex flex-col items-center justify-between gap-4 border-t border-line pt-6 text-ink-muted md:flex-row">
+    <div class="font-medium text-ink">
+      © {year} Jhan Carlos
     </div>
     <div class="flex gap-6">
-      <a href="/projects" class="hover:text-gray-900 dark:hover:text-white transition-colors">Projects</a>
-      <a href="/#About" class="hover:text-gray-900 dark:hover:text-white transition-colors">About me</a>
+      <a href="/projects" class="transition-colors hover:text-accent">Projects</a>
+      <a href="/#About" class="transition-colors hover:text-accent">About me</a>
     </div>
   </div>
 </footer>
