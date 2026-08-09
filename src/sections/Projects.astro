@@ -5,10 +5,23 @@ import SectionTitle from "../components/SectionTitle.astro";
 import { Folder, ArrowRight } from "@lucide/astro";
 ---
 
-<section id="projects" class="scroll-mt-24 py-10">
+<section id="projects" class="scroll-mt-24 py-24 md:py-32">
   <SectionTitle icon={Folder} title="Projects" />
 
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(17.5rem,1fr))] gap-4">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(17.5rem,1fr))] gap-4" data-reveal>
+    <Project
+      title='Decisor Renew'
+      description='Public policy management platform for the government of Risaralda. Backend work plus deployment and hardening on a Linux server.'
+      technologies={['Rails', '.NET', 'Linux', 'systemd']}
+      demo='https://politicas.risaralda.gov.co'
+      type="Backend"
+    />
+    <Project
+      title='Workfront Fusion Toolkit'
+      description='Automation flows, custom reports and integrations on Adobe Workfront, wired to Salesforce, SharePoint and Google Sheets.'
+      technologies={['Workfront Fusion', 'Salesforce', 'JavaScript', 'SOQL']}
+      type="Automation"
+    />
     <Project
       title='Finance'
       description='Manage your personal finances.'
@@ -17,19 +30,12 @@ import { Folder, ArrowRight } from "@lucide/astro";
       demo='https://finance.jhancarlos.me'
       type="FullStack"
     />
-    <Project
-      title='Eccomerce'
-      description='E-commerce built with Ruby On Rails. Create an account, list your products, and more.'
-      technologies={['Rails', 'PostgreSQL']}
-      github='https://github.com/FrankiNarvaez/E-commerce-Rails'
-      type="FullStack"
-    />
   </div>
 
-  <div class="mt-6">
+  <div class="mt-8" data-reveal style="--index: 1">
     <a
       href="/projects"
-      class="group inline-flex items-center gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
+      class="group inline-flex items-center gap-2 rounded-md border border-line px-4 py-2.5 text-sm text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink active:scale-[0.98]"
     >
       See all projects
       <ArrowRight size={16} class="transition-transform duration-200 group-hover:translate-x-0.5" />

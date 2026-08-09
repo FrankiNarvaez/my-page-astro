@@ -3,46 +3,44 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Runtime tokens. Swapped by the `.dark` class so every utility below
-   resolves to the right value without duplicating `dark:` variants. */
+/* Neutral monochrome ramp. The previous scale was blue-tinted, which fought
+   the warm magenta accent. Neutral greys let the accent carry all the color. */
 :root {
   color-scheme: light;
 
-  /* Elevation ramp. Pure white against the grey page read as a hard cut,
-     so raised surfaces sit one gentle step above the background instead. */
-  --surface: #edeef5;
-  --surface-raised: #f5f6fa;
-  --surface-sunken: #e5e7f0;
-  --line: #dadce8;
-  --line-strong: #c1c5d6;
+  --surface: #f7f6f3;
+  --surface-raised: #fcfbfa;
+  --surface-sunken: #f0efeb;
+  --line: #e6e4df;
+  --line-strong: #d4d1ca;
 
-  --ink: #1e2130;
-  --ink-muted: #565b71;
-  --ink-subtle: #757a8f;
+  --ink: #1a1a18;
+  --ink-muted: #5f5d57;
+  --ink-subtle: #8a8780;
 
   --accent: #750851;
   --accent-contrast: #fbf9fb;
-  --accent-wash: rgb(117 8 81 / 0.07);
+  --accent-wash: rgb(117 8 81 / 0.06);
 }
 
 .dark {
   color-scheme: dark;
 
-  --surface: #0c0d13;
-  --surface-raised: #16181f;
-  --surface-sunken: #101219;
-  --line: #262a36;
-  --line-strong: #363b4a;
+  --surface: #111110;
+  --surface-raised: #1a1a18;
+  --surface-sunken: #151513;
+  --line: #292826;
+  --line-strong: #3b3936;
 
-  --ink: #e8e9f0;
-  --ink-muted: #a2a7ba;
-  --ink-subtle: #838899;
+  --ink: #ebe9e4;
+  --ink-muted: #a5a29a;
+  --ink-subtle: #86837c;
 
-  /* Same hue as the light accent, lifted to 6.1:1 against --surface.
+  /* Same hue as the light accent, lifted to 6:1 against --surface.
      #750851 sits at 1.6:1 on the dark background and is unreadable. */
   --accent: #d96ba8;
   --accent-contrast: #1a0512;
-  --accent-wash: rgb(217 107 168 / 0.12);
+  --accent-wash: rgb(217 107 168 / 0.10);
 }
 
 @theme inline {
@@ -63,11 +61,11 @@
   --color-accent-wash: var(--accent-wash);
 }
 
-/* Single source of truth for horizontal rhythm. The header and the page
-   content used different containers, so the logo never lined up with the H1. */
+/* Single source of truth for horizontal rhythm. Constrained to 64rem so
+   body copy stays in an editorial measure. */
 @utility container-page {
   width: 100%;
-  max-width: 68rem;
+  max-width: 64rem;
   margin-inline: auto;
   padding-inline: 1.5rem;
 
@@ -81,6 +79,7 @@
     scroll-behavior: smooth;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   body {
@@ -100,9 +99,48 @@
   }
 }
 
+/* Scroll entry. Elements only start hidden when JS can reveal them, so a
+   failed script or a no-JS client never leaves the page blank. */
+@layer components {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--index, 0) * 80ms);
+    will-change: opacity, transform;
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* Ambient warmth behind the page. Fixed and non-interactive so it never
+   repaints on scroll. */
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 15% -10%, var(--accent-wash), transparent 70%),
+    radial-gradient(50rem 35rem at 100% 20%, var(--accent-wash), transparent 70%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  /* Reveal targets must land visible before transitions are neutralised,
+     otherwise they stay at opacity 0 forever. */
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
   }
 
   *,

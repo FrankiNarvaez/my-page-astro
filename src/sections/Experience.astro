@@ -13,13 +13,26 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Developer Jr.",
-    company: "Qstrauss Consulting",
-    period: "Oct 2025 - Present",
+    role: "Junior Developer",
+    company: "Code and Theory Colombia",
+    period: "Aug 2026 - Present",
+    summary: "Continuation of the contract transferred from Qstrauss Consulting through a formal assignment, with unbroken tenure.",
     functions: [
-      "Project and task management.",
-      "Automation and workflow orchestration.",
-      "Third-party integrations."
+      "Automation, reporting and integration work on Adobe Workfront, continuing the scope started at Qstrauss Consulting."
+    ],
+  },
+  {
+    role: "Junior Developer",
+    company: "Qstrauss Consulting",
+    period: "Oct 2025 - Aug 2026",
+    functions: [
+      "Built automation flows, custom reports and integrations in Adobe Workfront and Workfront Fusion, connecting Workfront with Salesforce, SharePoint and Google Sheets.",
+      "Troubleshot Fusion-Salesforce integrations, including SOQL date filtering over OpportunityLineItem using relative date literals and Fusion-computed dates.",
+      "Designed a capacity tracking system that measures project creation volume by medium/format combination against minimum and maximum thresholds defined in Google Sheets.",
+      "Designed a parallel control hierarchy in Workfront (Portfolio, Program, Project, Task) to count real projects without altering the existing structure.",
+      "Standardized documentation generated from Fusion JSON blueprints, including Mermaid diagrams and Word documents following a defined style guide.",
+      "Built text mode reports in Workfront with task counts, conditional color formatting through custom calculated fields, and grouping by parent task or program.",
+      "Contributed backend work to the Decisor Renew platform and set up GitHub Actions workflows for Rails deployments over VPN and SSH."
     ],
   },
   {
@@ -48,9 +61,9 @@ const experiences: Experience[] = [
 ];
 ---
 
-<section id="Experience" class="scroll-mt-24 py-10">
+<section id="Experience" class="scroll-mt-24 py-24 md:py-32">
   <SectionTitle icon={Briefcase} title="Experience" />
-  <div class="space-y-3">
+  <div class="border-t border-line" data-reveal>
     {experiences.map((exp) => (
       <ExperienceItem job={exp} />
     ))}

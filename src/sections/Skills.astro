@@ -34,17 +34,20 @@ const skills: Skill[] = [
   { name: ".NET", icon: "dotnet", color: "#512BD4" },
   { name: "C#", icon: "csharp", color: "#A179DC" },
   { name: "Bun", icon: "bun", color: "#FBF0DF" },
+  { name: "Adobe Workfront", icon: "workfront", color: "#EB1000" },
+  { name: "Salesforce", icon: "salesforce", color: "#00A1E0" },
+  { name: "GitHub Actions", icon: "github-actions", color: "#2088FF" },
 ];
 ---
 
-<section id="skills" class="scroll-mt-24 py-10">
+<section id="skills" class="scroll-mt-24 py-24 md:py-32">
   <SectionTitle icon={CodeXml} title="Tech stack" />
 
-  <ul class="grid grid-cols-4 justify-items-center gap-3 sm:grid-cols-6 md:grid-cols-8">
+  <ul class="grid grid-cols-4 justify-items-center gap-3 sm:grid-cols-6 md:grid-cols-8" data-reveal>
     {skills.map((skill) => (
       <li class="skill-tile group relative" style={`--skill: ${skill.color};`}>
         <div
-          class="flex h-16 w-16 items-center justify-center rounded-2xl border border-line bg-surface-raised transition-all duration-300 group-hover:-translate-y-1 md:h-[4.5rem] md:w-[4.5rem]"
+          class="flex h-16 w-16 items-center justify-center rounded-lg border border-line transition-colors duration-300 md:h-[4.5rem] md:w-[4.5rem]"
         >
           <Icon name={skill.icon} size={32} />
         </div>
@@ -53,7 +56,7 @@ const skills: Skill[] = [
           class="pointer-events-none absolute bottom-full left-1/2 z-20 mb-2 -translate-x-1/2 translate-y-1 opacity-0 transition-all duration-200 group-hover:translate-y-0 group-hover:opacity-100"
         >
           <span
-            class="block rounded-md bg-ink px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-surface"
+            class="block rounded border border-line bg-surface-raised px-2.5 py-1 font-mono text-[11px] whitespace-nowrap text-ink-muted"
           >
             {skill.name}
           </span>
@@ -69,6 +72,6 @@ const skills: Skill[] = [
      against one of the two themes. color-mix keeps every value legible. */
   .skill-tile:hover > div:first-child {
     border-color: color-mix(in srgb, var(--skill) 60%, var(--line));
-    background-color: color-mix(in srgb, var(--skill) 12%, var(--surface-raised));
+    background-color: color-mix(in srgb, var(--skill) 10%, var(--surface));
   }
 </style>

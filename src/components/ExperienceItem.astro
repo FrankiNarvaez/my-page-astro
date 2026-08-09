@@ -1,5 +1,5 @@
 ---
-import { Briefcase, ChevronDown } from '@lucide/astro';
+import { Plus, Minus } from '@lucide/astro';
 
 interface Experience {
   role: string;
@@ -16,38 +16,39 @@ interface Props {
 const { job } = Astro.props;
 ---
 
-<details class="group overflow-hidden rounded-xl border border-line bg-surface-raised transition-colors duration-300 hover:border-line-strong">
-  <summary class="flex cursor-pointer flex-col justify-between gap-3 p-5 select-none md:flex-row md:items-center">
-    <div class="flex-1">
-      <h3 class="font-bold text-ink">
+<details class="group border-b border-line">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 select-none">
+    <div class="min-w-0">
+      <h3 class="text-lg font-medium tracking-tight text-ink">
         {job.role}
       </h3>
-      <div class="mt-1 flex items-center gap-2 text-sm font-medium text-ink-muted">
-        <Briefcase size={13} class="shrink-0" />
+      <p class="mt-1 text-sm text-ink-muted">
         {job.company}
-      </div>
+      </p>
     </div>
 
-    <div class="flex items-center gap-3">
-      <span class="rounded-full border border-line bg-surface-sunken px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-ink-muted">
+    <div class="flex shrink-0 items-center gap-5">
+      <span class="hidden font-mono text-xs whitespace-nowrap text-ink-subtle sm:block">
         {job.period}
       </span>
-      <div class="chevron shrink-0 text-ink-subtle">
-        <ChevronDown size={18} />
-      </div>
+      <span class="text-ink-subtle transition-colors group-hover:text-ink">
+        <Plus size={16} class="toggle-open" />
+        <Minus size={16} class="toggle-close hidden" />
+      </span>
     </div>
   </summary>
 
   <div class="exp-body">
     <div class="exp-inner">
-      <div class="border-t border-line bg-surface-sunken/40 p-5">
+      <div class="pb-7">
+        <p class="mb-4 font-mono text-xs text-ink-subtle sm:hidden">{job.period}</p>
         {job.summary && (
           <p class="mb-4 text-sm text-ink-subtle">{job.summary}</p>
         )}
-        <ul class="space-y-2.5">
+        <ul class="max-w-2xl space-y-3">
           {job.functions.map((fn) => (
-            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-ink-muted">
-              <span class="mt-[0.5em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <li class="flex items-start gap-3 text-sm leading-[1.7] text-ink-muted">
+              <span class="mt-[0.65em] h-px w-3 shrink-0 bg-line-strong" />
               {fn}
             </li>
           ))}
@@ -58,11 +59,16 @@ const { job } = Astro.props;
 </details>
 
 <style>
-  summary {
-    list-style: none;
-  }
   summary::-webkit-details-marker {
     display: none;
+  }
+
+  details[open] .toggle-open {
+    display: none;
+  }
+
+  details[open] .toggle-close {
+    display: block;
   }
 
   .exp-body {
@@ -82,13 +88,5 @@ const { job } = Astro.props;
   .exp-inner {
     overflow: hidden;
     min-height: 0;
-  }
-
-  .chevron {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  details[open] .chevron {
-    transform: rotate(180deg);
   }
 </style>

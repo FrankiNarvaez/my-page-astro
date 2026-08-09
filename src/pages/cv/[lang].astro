@@ -24,17 +24,17 @@ const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <main class="container-page pt-28 pb-16">
+  <main class="container-page pt-32 pb-24">
     <a
       href="/#About"
-      class="group inline-flex items-center gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
+      class="group inline-flex items-center gap-2 rounded-md border border-line px-4 py-2.5 text-sm text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink active:scale-[0.98]"
     >
       <ChevronLeft size={16} class="transition-transform duration-200 group-hover:-translate-x-0.5" />
       Go back
     </a>
 
     <article
-      class="prose mt-8 max-w-none
+      class="prose mt-12 max-w-none
              prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-[var(--ink)]
              prose-p:text-[var(--ink-muted)] prose-li:text-[var(--ink-muted)]
              prose-strong:text-[var(--ink)]

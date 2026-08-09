@@ -8,23 +8,55 @@ import { ChevronLeft } from '@lucide/astro';
   title="Jhan Carlos | Projects"
   description="Web applications and tools built by Jhan Carlos Narvaez, from Rails and Nest APIs to React and Next.js frontends."
 >
-  <main class="container-page pt-28 pb-16">
+  <main class="container-page pt-32 pb-24">
     <a
       href="/#projects"
-      class="group inline-flex items-center gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
+      class="group inline-flex items-center gap-2 rounded-md border border-line px-4 py-2.5 text-sm text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink active:scale-[0.98]"
     >
       <ChevronLeft size={16} class="transition-transform duration-200 group-hover:-translate-x-0.5" />
       Go back
     </a>
 
-    <div class="mt-8 mb-10 max-w-2xl">
-      <h1 class="text-3xl font-bold tracking-tight text-ink md:text-4xl">Projects</h1>
-      <p class="mt-4 text-base leading-relaxed text-ink-muted">
+    <div class="mt-12 mb-14 max-w-2xl" data-reveal>
+      <h1 class="text-4xl font-medium tracking-[-0.03em] text-ink md:text-5xl">Projects</h1>
+      <p class="mt-5 text-base leading-[1.7] text-ink-muted">
         A collection of projects I have <span class="font-medium text-accent">developed and collaborated on</span>, from web applications and internal tools to team builds. Take a closer look at each one and see how I turn ideas into working software.
       </p>
     </div>
 
-    <section class="grid grid-cols-[repeat(auto-fit,minmax(17.5rem,1fr))] gap-4">
+    <section class="grid grid-cols-[repeat(auto-fit,minmax(17.5rem,1fr))] gap-4" data-reveal>
+      <Project
+        title='Decisor Renew'
+        description='Public policy management platform for the government of Risaralda. Backend work in Rails and .NET, Puma over SSL, systemd services and UFW rules on a Linux server.'
+        technologies={['Rails', '.NET', 'Linux', 'systemd', 'Puma']}
+        demo='https://politicas.risaralda.gov.co'
+        type="Backend"
+      />
+      <Project
+        title='Workfront Fusion Toolkit'
+        description='Automation flows, custom reports and integrations on Adobe Workfront, wired to Salesforce, SharePoint and Google Sheets, plus a capacity tracking system with configurable thresholds.'
+        technologies={['Workfront Fusion', 'Salesforce', 'JavaScript', 'SOQL']}
+        type="Automation"
+      />
+      <Project
+        title='PSD File Viewer'
+        description='Client-server viewer that parses and renders Photoshop documents in the browser, using ag-psd for the file format and napi-rs/canvas for rasterization.'
+        technologies={['Nodejs', 'JavaScript', 'ag-psd', 'napi-rs/canvas']}
+        type="FullStack"
+      />
+      <Project
+        title='Broken Chains'
+        description='Cooperative game designed to run on low-end hardware, built with a team at Universidad Tecnológica de Pereira with accessibility as a core constraint.'
+        technologies={['Accessibility', 'Low-Spec Optimization']}
+        type="Team Project"
+      />
+      <Project
+        title='Personal Portfolio'
+        description='This site. Static Astro build with content collections for the multilingual resume and a semantic design token system for theming.'
+        technologies={['Astro', 'TypeScript', 'Tailwind']}
+        github='https://github.com/FrankiNarvaez/my-page-astro'
+        type="FrontEnd"
+      />
       <Project
         title='Social Media'
         description='Social media where you can upload posts, see posts, follow people, and more.'
@@ -64,7 +96,7 @@ import { ChevronLeft } from '@lucide/astro';
         type="FullStack"
       />
       <Project
-        title='Eccomerce'
+        title='E-commerce'
         description='E-commerce built with Ruby On Rails. Create an account, list your products, and more.'
         technologies={['Rails', 'PostgreSQL']}
         github='https://github.com/FrankiNarvaez/E-commerce-Rails'

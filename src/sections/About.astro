@@ -18,23 +18,23 @@ const resumes = [
 ];
 ---
 
-<section id='About' class='scroll-mt-24 py-10'>
+<section id='About' class='scroll-mt-24 py-24 md:py-32'>
   <SectionTitle icon={Cat} title="About me" />
 
-  <div class='flex max-w-2xl flex-col gap-5'>
-    <p class='text-base leading-relaxed text-ink-muted'>
+  <div class='flex max-w-2xl flex-col gap-6' data-reveal>
+    <p class='text-base leading-[1.7] text-ink-muted'>
       I am Jhan Carlos, a <span class="font-medium text-accent">{age}-year-old fullstack developer</span> from Colombia, with a great passion for technology and software development. I love tackling new challenges and am always looking for opportunities to learn and grow professionally.
     </p>
-    <p class='text-base leading-relaxed text-ink-muted'>
+    <p class='text-base leading-[1.7] text-ink-muted'>
       My experience spans both frontend and backend development. I am committed to delivering creative and efficient solutions, and I enjoy collaborating with other developers to achieve exceptional results.
     </p>
   </div>
 
-  <div class="relative mt-8 inline-block text-left">
+  <div class="relative mt-10 inline-block text-left" data-reveal style="--index: 1">
     <button
       type="button"
       id="cvDropdownButton"
-      class="inline-flex w-48 items-center justify-between gap-2 rounded-lg border border-line bg-surface-raised px-4 py-2.5 text-sm font-medium text-ink-muted transition-all duration-200 hover:border-line-strong hover:text-accent"
+      class="inline-flex w-48 items-center justify-between gap-2 rounded-md border border-line px-4 py-2.5 text-sm text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink active:scale-[0.98]"
       aria-expanded="false"
       aria-haspopup="true"
       aria-controls="cvDropdownMenu"
@@ -45,12 +45,12 @@ const resumes = [
 
     <div
       id="cvDropdownMenu"
-      class="absolute left-0 z-20 mt-2 hidden w-48 overflow-hidden rounded-lg border border-line bg-surface-raised p-1 shadow-lg backdrop-blur-xl"
+      class="absolute left-0 z-20 mt-2 hidden w-48 overflow-hidden rounded-md border border-line bg-surface-raised p-1"
     >
       {resumes.map((resume) => (
         <a
           href={resume.href}
-          class="block rounded-md px-3 py-2 text-sm text-ink-muted transition-colors hover:bg-accent-wash hover:text-accent"
+          class="block rounded px-3 py-2 text-sm text-ink-muted transition-colors hover:bg-surface-sunken hover:text-ink"
         >
           {resume.label}
         </a>
